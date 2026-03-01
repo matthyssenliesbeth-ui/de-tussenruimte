@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privé Retraite Antwerpen — Onthaasten met begeleiding | De Tussenruimte</title>
+    <meta name="description" content="Een meerdaags privé verblijf in regio Antwerpen om volledig te onthaasten — al dan niet gecombineerd met coaching. Ontbijt en diner verzorgd, individuele begeleiding mogelijk.">
+    <link rel="canonical" href="/retraite/">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/main.css">
+
+    <style>
+        .inclusion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+            gap: clamp(1rem, 2.5vw, 1.5rem);
+            margin-top: clamp(2rem, 4vh, 3.5rem);
+            width: var(--container-lg);
+        }
+
+        .inclusion-item {
+            background: rgba(255, 255, 255, 0.55);
+            border-radius: 0.75rem;
+            padding: clamp(1.25rem, 2.5vw, 1.75rem);
+            border: 1px solid rgba(255, 255, 255, 0.75);
+            text-align: left;
+        }
+
+        .inclusion-item__icon {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            line-height: 1;
+        }
+
+        .inclusion-item__title {
+            font-family: var(--font-heading);
+            font-size: var(--type-lead);
+            font-weight: 400;
+            color: var(--clr-deep);
+            margin-bottom: 0.4rem;
+        }
+
+        .inclusion-item__text {
+            font-size: var(--type-label);
+            color: var(--clr-text-muted);
+            line-height: 1.75;
+        }
+
+        .quote-block {
+            border-left: 2px solid var(--clr-earth);
+            padding-left: clamp(1.25rem, 3vw, 2rem);
+            margin: clamp(2.5rem, 5vh, 4rem) auto;
+            max-width: 52ch;
+            text-align: left;
+        }
+
+        .quote-block__text {
+            font-family: var(--font-heading);
+            font-size: var(--type-lead);
+            font-style: italic;
+            font-weight: 300;
+            color: var(--clr-deep);
+            line-height: 1.55;
+            margin-bottom: 0.75rem;
+        }
+
+        .quote-block__source {
+            font-size: var(--type-label);
+            color: var(--clr-earth);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .booking-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+            gap: clamp(0.75rem, 2vw, 1.25rem);
+            margin-top: clamp(1.75rem, 4vh, 3rem);
+            width: var(--container-md);
+        }
+
+        .booking-item {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            border-radius: 0.75rem;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .booking-item__label {
+            font-size: var(--type-label);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--clr-stone);
+            margin-bottom: 0.5rem;
+        }
+
+        .booking-item__value {
+            font-family: var(--font-heading);
+            font-size: var(--type-lead);
+            color: var(--clr-cream);
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ── Navigatie ──────────────────────────────────────────────────────── -->
+    <nav class="site-nav site-nav--solid" aria-label="Hoofdnavigatie">
+        <a href="../" class="site-nav__logo">De Tussenruimte</a>
+        <ul class="site-nav__links" role="list">
+            <li><a href="../#over"           class="site-nav__link">Over</a></li>
+            <li><a href="../#diensten"       class="site-nav__link">Aanbod</a></li>
+            <li><a href="../#loopbaancheque" class="site-nav__link">Loopbaancheque</a></li>
+            <li><a href="../retraite/"       class="site-nav__link">Retraite</a></li>
+            <li><a href="../blog/"           class="site-nav__link">Blog</a></li>
+            <li><a href="../#contact"        class="site-nav__link site-nav__link--cta">Contact</a></li>
+        </ul>
+        <button class="site-nav__toggle" aria-label="Menu openen" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="site-nav__mobile-menu" role="dialog" aria-label="Mobiel menu">
+        <a href="../"              class="site-nav__mobile-link">Home</a>
+        <a href="../#diensten"     class="site-nav__mobile-link">Aanbod</a>
+        <a href="../retraite/"     class="site-nav__mobile-link">Retraite</a>
+        <a href="../blog/"         class="site-nav__mobile-link">Blog</a>
+        <a href="../#contact"      class="site-nav__mobile-link">Contact</a>
+    </div>
+
+
+    <!-- ── Hero ──────────────────────────────────────────────────────────── -->
+    <header class="page-hero" aria-label="Privé retraite">
+        <div class="page-hero__bg"
+             style="background-image: url('../assets/Images/valiphotos-road-1072823.jpg');
+                    background-position: center 40%;"
+             aria-hidden="true">
+        </div>
+        <div class="page-hero__overlay" aria-hidden="true"></div>
+        <div class="page-hero__content">
+            <p class="page-hero__label">Privé retraite — Antwerpen</p>
+            <h1 class="page-hero__title">
+                Onthaasten met<br><em style="font-style:italic;">begeleiding</em>
+            </h1>
+            <p class="page-hero__intro">
+                Soms heb je meer nodig dan een gesprek. Een meerdaags verblijf
+                waar rust, natuur en persoonlijke begeleiding samenkomen.
+            </p>
+        </div>
+    </header>
+
+
+    <!-- ── Wat is de retraite ─────────────────────────────────────────────── -->
+    <section class="content-section content-section--cream" aria-labelledby="retraite-intro-title">
+        <div class="section__inner">
+            <p class="section__label">Wat je hier vindt</p>
+            <h2 id="retraite-intro-title" class="section__title">
+                Vertragen, voelen<br>en opnieuw verbinden
+            </h2>
+            <p class="section__body">
+                Tijdens je verblijf in De Tussenruimte neem je afstand van je dagelijkse
+                context en maak je opnieuw verbinding met jezelf. Je hoeft niets te
+                presteren — je mag aankomen, landen en vertragen.
+            </p>
+            <p class="section__body" style="margin-top: 1.25rem;">
+                Soms ontstaat helderheid niet door méér te doen, maar door even
+                niets te moeten.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- ── Inclusies ─────────────────────────────────────────────────────── -->
+    <section class="content-section content-section--sand" aria-labelledby="inclusies-title">
+        <p class="section__label">Tijdens je verblijf</p>
+        <h2 id="inclusies-title" class="section__title">Wat inbegrepen is</h2>
+
+        <div class="inclusion-grid">
+
+            <div class="inclusion-item">
+                <div class="inclusion-item__icon" aria-hidden="true">◌</div>
+                <h3 class="inclusion-item__title">Individuele coaching</h3>
+                <p class="inclusion-item__text">
+                    Verdiepende gesprekken op maat — combineerbaar met life coaching,
+                    loopbaancoaching of ondernemerscoaching.
+                </p>
+            </div>
+
+            <div class="inclusion-item">
+                <div class="inclusion-item__icon" aria-hidden="true">◌</div>
+                <h3 class="inclusion-item__title">Lichaamsgerichte ontspanning</h3>
+                <p class="inclusion-item__text">
+                    Een sessie waarbij aandacht gaat naar wat je lichaam aangeeft —
+                    zodat inzichten niet enkel in je hoofd ontstaan.
+                </p>
+            </div>
+
+            <div class="inclusion-item">
+                <div class="inclusion-item__icon" aria-hidden="true">◌</div>
+                <h3 class="inclusion-item__title">Stilte en reflectie</h3>
+                <p class="inclusion-item__text">
+                    Tijd voor jezelf: wandelingen, lezen, schrijven. Geen agenda —
+                    jij bepaalt het tempo.
+                </p>
+            </div>
+
+            <div class="inclusion-item">
+                <div class="inclusion-item__icon" aria-hidden="true">◌</div>
+                <h3 class="inclusion-item__title">Maaltijden verzorgd</h3>
+                <p class="inclusion-item__text">
+                    Ontbijt en diner worden voorzien zodat jij werkelijk niets
+                    hoeft te regelen.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ── Citaat ─────────────────────────────────────────────────────────── -->
+    <section class="content-section content-section--cream" aria-label="Getuigenis">
+        <div class="section__inner">
+            <div class="quote-block">
+                <p class="quote-block__text">
+                    Het verblijf gaf me de rust en inzichten die ik al lang zocht.
+                    Ik vertrok anders dan ik aankwam.
+                </p>
+                <span class="quote-block__source">— Thomas, privé retraite</span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ── Combinatiemogelijkheden ────────────────────────────────────────── -->
+    <section class="content-section content-section--sage" aria-labelledby="combos-title">
+        <div class="section__inner">
+            <p class="section__label">Flexibel aanbod</p>
+            <h2 id="combos-title" class="section__title">Los of in combinatie</h2>
+            <p class="section__body">
+                De retraite kan volledig los geboekt worden — louter voor rust en
+                onthaasten. Of je combineert het met een van de coachingstrajecten
+                voor een extra diepgaande ervaring.
+            </p>
+            <ul class="retraite-options" style="margin-top:1.5rem; display:flex; flex-direction:column; gap:0.5rem; max-width:44ch; margin-inline:auto; text-align:left;">
+                <li style="font-size:var(--type-label); color:var(--clr-text-muted); display:flex; gap:0.6em;">
+                    <span style="color:var(--clr-earth);">—</span> Retraite als stand-alone
+                </li>
+                <li style="font-size:var(--type-label); color:var(--clr-text-muted); display:flex; gap:0.6em;">
+                    <span style="color:var(--clr-earth);">—</span> Retraite + life coaching
+                </li>
+                <li style="font-size:var(--type-label); color:var(--clr-text-muted); display:flex; gap:0.6em;">
+                    <span style="color:var(--clr-earth);">—</span> Retraite + loopbaancoaching
+                </li>
+                <li style="font-size:var(--type-label); color:var(--clr-text-muted); display:flex; gap:0.6em;">
+                    <span style="color:var(--clr-earth);">—</span> Retraite + ondernemerscoaching
+                </li>
+            </ul>
+        </div>
+    </section>
+
+
+    <!-- ── Boeken ─────────────────────────────────────────────────────────── -->
+    <section class="content-section content-section--deep" aria-labelledby="boeken-title">
+        <div class="section__inner section__inner--md" style="color: var(--clr-cream);">
+            <p class="section__label">Reserveer</p>
+            <h2 id="boeken-title" class="section__title" style="color:var(--clr-cream);">
+                Klaar om te vertragen?
+            </h2>
+            <p class="section__body" style="color: rgba(245,240,235,0.7);">
+                Neem contact op voor beschikbaarheid en een persoonlijk voorstel
+                op maat. Ik bespreek graag samen wat het beste bij jou past.
+            </p>
+
+            <div class="booking-info">
+                <div class="booking-item">
+                    <div class="booking-item__label">Duur</div>
+                    <div class="booking-item__value">2 — 4 nachten</div>
+                </div>
+                <div class="booking-item">
+                    <div class="booking-item__label">Locatie</div>
+                    <div class="booking-item__value">Regio Antwerpen</div>
+                </div>
+                <div class="booking-item">
+                    <div class="booking-item__label">Beschikbaar</div>
+                    <div class="booking-item__value">Op aanvraag</div>
+                </div>
+            </div>
+
+            <div class="section__ctas">
+                <a href="../#contact" class="btn btn--primary">Vraag vrijblijvend info</a>
+                <a href="#"         class="btn btn--outline-light">Plan via Calendly</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ── Footer ─────────────────────────────────────────────────────────── -->
+    <footer class="site-footer">
+        <span class="footer__brand">De Tussenruimte — Privé Retraite Antwerpen</span>
+        <nav class="footer__links" aria-label="Footernavigatie">
+            <a href="../"                class="footer__link">Home</a>
+            <a href="../loopbaancheque/" class="footer__link">Loopbaancheque</a>
+            <a href="../blog/"           class="footer__link">Blog</a>
+            <a href="../#contact"        class="footer__link">Contact</a>
+        </nav>
+    </footer>
+
+    <script src="../assets/js/nav.js"></script>
+</body>
+</html>
