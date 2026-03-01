@@ -360,6 +360,16 @@
                 grid-template-columns: 1fr;
                 width: var(--container-sm);
             }
+
+            /* Contact is de laatste sticky-sectie — mag op mobiel meegroeien */
+            .section--contact {
+                height: auto;
+                min-height: 100vh;
+                overflow-y: visible;
+                justify-content: flex-start;
+                padding-top: calc(var(--nav-h) + 2.5rem);
+                padding-bottom: 3rem;
+            }
         }
 
         /* ── Contactformulier ───────────────────────────────────────────────── */
