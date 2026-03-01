@@ -29,17 +29,21 @@
             justify-content: center;
         }
 
-        .stack-section:not(:first-child) {
+        .section--over,
+        .section--diensten,
+        .section--cheque,
+        .section--retraite,
+        .section--contact {
             border-radius: var(--radius-card) var(--radius-card) 0 0;
             box-shadow: var(--shadow-card);
         }
 
-        .stack-section:nth-child(1) { z-index: 1; }
-        .stack-section:nth-child(2) { z-index: 2; }
-        .stack-section:nth-child(3) { z-index: 3; }
-        .stack-section:nth-child(4) { z-index: 4; }
-        .stack-section:nth-child(5) { z-index: 5; }
-        .stack-section:nth-child(6) { z-index: 6; }
+        .section--hero         { z-index: 1; }
+        .section--over         { z-index: 2; }
+        .section--diensten     { z-index: 3; }
+        .section--cheque       { z-index: 4; }
+        .section--retraite     { z-index: 5; }
+        .section--contact      { z-index: 6; }
 
         /* Achtergrondkleuren per sectie */
         .section--hero      { background-color: var(--clr-deep); }
