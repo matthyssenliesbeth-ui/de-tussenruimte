@@ -46,6 +46,19 @@
         link.addEventListener('click', closeMenu);
     });
 
+    // ── Sticky-stack anchor fix ──────────────────────────────────────────────
+    // De browser berekent scroll-doelen voor position:sticky verkeerd.
+    // We onderscheppen alle anchor-links en scrollen manueel naar offsetTop.
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            var id     = this.getAttribute('href').slice(1);
+            var target = document.getElementById(id);
+            if (!target) return;
+            e.preventDefault();
+            window.scrollTo({ top: target.offsetTop, behavior: 'smooth' });
+        });
+    });
+
     // Menu sluiten bij Escape-toets
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && menu.classList.contains('is-open')) {

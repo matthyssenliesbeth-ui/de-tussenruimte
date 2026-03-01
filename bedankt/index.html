@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bericht ontvangen — De Tussenruimte</title>
+    <meta name="robots" content="noindex">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/main.css">
+
+    <style>
+        .thankyou-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--clr-cream);
+            text-align: center;
+            padding: var(--nav-h) 1.5rem 3rem;
+        }
+
+        .thankyou-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1;
+        }
+
+        .thankyou-title {
+            font-family: var(--font-heading);
+            font-size: var(--type-title);
+            font-weight: 300;
+            color: var(--clr-deep);
+            margin-bottom: 1rem;
+        }
+
+        .thankyou-body {
+            font-size: var(--type-body);
+            color: var(--clr-text-muted);
+            line-height: 1.8;
+            max-width: 44ch;
+            margin: 0 auto 2.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="site-nav site-nav--solid" aria-label="Hoofdnavigatie">
+        <a href="../" class="site-nav__logo">De Tussenruimte</a>
+        <ul class="site-nav__links" role="list">
+            <li><a href="../#over"            class="site-nav__link">Over</a></li>
+            <li><a href="../#diensten"        class="site-nav__link">Aanbod</a></li>
+            <li><a href="../loopbaancheque/"  class="site-nav__link">Loopbaancheque</a></li>
+            <li><a href="../retraite/"        class="site-nav__link">Retraite</a></li>
+            <li><a href="../blog/"            class="site-nav__link">Blog</a></li>
+            <li><a href="../#contact"         class="site-nav__link site-nav__link--cta">Contact</a></li>
+        </ul>
+        <button class="site-nav__toggle" aria-label="Menu openen" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="site-nav__mobile-menu" role="dialog" aria-label="Mobiel menu">
+        <a href="../"              class="site-nav__mobile-link">Home</a>
+        <a href="../#diensten"     class="site-nav__mobile-link">Aanbod</a>
+        <a href="../loopbaancheque/" class="site-nav__mobile-link">Loopbaancheque</a>
+        <a href="../retraite/"     class="site-nav__mobile-link">Retraite</a>
+        <a href="../blog/"         class="site-nav__mobile-link">Blog</a>
+        <a href="../#contact"      class="site-nav__mobile-link">Contact</a>
+    </div>
+
+    <main class="thankyou-section">
+        <div class="thankyou-icon" aria-hidden="true">◌</div>
+        <h1 class="thankyou-title">Bericht ontvangen</h1>
+        <p class="thankyou-body">
+            Dank je wel voor je bericht. Ik neem zo snel mogelijk contact met je op —
+            doorgaans binnen één à twee werkdagen.
+        </p>
+        <a href="../" class="btn btn--primary">Terug naar de homepage</a>
+    </main>
+
+    <script src="../assets/js/nav.js"></script>
+</body>
+</html>
