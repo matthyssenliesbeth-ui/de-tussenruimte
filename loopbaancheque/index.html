@@ -7,157 +7,8 @@
     <meta name="description" content="Gebruik je loopbaancheque voor 4u professionele loopbaancoaching in Antwerpen voor slechts €90. Erkend loopbaancentrum KONNEKT. Ontdek of je in aanmerking komt.">
     <link rel="canonical" href="/loopbaancheque/">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/main.css">
 
-    <style>
-        /* Kompacte highlight-blokken */
-        .fact-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
-            gap: clamp(0.875rem, 2vw, 1.25rem);
-            margin-top: clamp(2rem, 4vh, 3.5rem);
-            width: var(--container-md);
-        }
-
-        .fact-item {
-            text-align: center;
-            padding: 1.75rem 1.25rem;
-            border-radius: 1rem;
-            background: rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-        }
-
-        .fact-item__value {
-            font-family: var(--font-heading);
-            font-size: var(--type-display);
-            font-weight: 300;
-            color: var(--clr-earth);
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-
-        .fact-item__label {
-            font-size: var(--type-label);
-            color: var(--clr-text-muted);
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            line-height: 1.5;
-        }
-
-        /* Stappenplan */
-        .steps-list {
-            width: var(--container-md);
-            margin-top: clamp(2rem, 4vh, 3.5rem);
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-
-        .step {
-            display: grid;
-            grid-template-columns: 3.5rem 1fr;
-            gap: 1.25rem;
-            align-items: start;
-            text-align: left;
-            padding-bottom: clamp(1.5rem, 3vh, 2.25rem);
-            position: relative;
-        }
-
-        /* Verticale verbindingslijn tussen stappen */
-        .step:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            left: 1.55rem;
-            top: 2.5rem;
-            bottom: 0;
-            width: 1px;
-            background: linear-gradient(to bottom, var(--clr-stone), transparent);
-        }
-
-        .step__number {
-            font-family: var(--font-heading);
-            font-size: var(--type-title);
-            color: var(--clr-stone);
-            line-height: 1;
-            text-align: center;
-        }
-
-        .step__title {
-            font-family: var(--font-heading);
-            font-size: var(--type-lead);
-            font-weight: 400;
-            color: var(--clr-deep);
-            margin-bottom: 0.4rem;
-            padding-top: 0.2rem;
-        }
-
-        .step__text {
-            font-size: var(--type-label);
-            color: var(--clr-text-muted);
-            line-height: 1.75;
-        }
-
-        /* Voorwaarden-lijst */
-        .conditions-list {
-            margin-top: clamp(1.75rem, 3.5vh, 2.75rem);
-            max-width: 48ch;
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-            text-align: left;
-        }
-
-        .conditions-list li {
-            display: flex;
-            align-items: baseline;
-            gap: 0.75em;
-            font-size: var(--type-body);
-            color: var(--clr-text-muted);
-            line-height: 1.7;
-        }
-
-        .conditions-list li::before {
-            content: '✓';
-            color: var(--clr-earth);
-            font-family: var(--font-heading);
-            flex-shrink: 0;
-            font-size: 1em;
-        }
-
-        .conditions-list--no li::before {
-            content: '✕';
-            color: var(--clr-text-muted);
-        }
-
-        .faq-list {
-            width: var(--container-md);
-            margin-top: clamp(2rem, 4vh, 3.5rem);
-            text-align: left;
-        }
-
-        .faq-item {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            padding: clamp(1.25rem, 2.5vh, 1.75rem) 0;
-        }
-
-        .faq-item__question {
-            font-family: var(--font-heading);
-            font-size: var(--type-lead);
-            font-weight: 400;
-            color: var(--clr-deep);
-            margin-bottom: 0.6rem;
-        }
-
-        .faq-item__answer {
-            font-size: var(--type-label);
-            color: var(--clr-text-muted);
-            line-height: 1.8;
-            max-width: 58ch;
-        }
-    </style>
 </head>
 <body>
 
@@ -189,16 +40,13 @@
 
     <!-- ── Hero ──────────────────────────────────────────────────────────── -->
     <header class="page-hero" aria-label="Loopbaancheque Antwerpen">
-        <div class="page-hero__bg"
-             style="background-image: url('../assets/Images/valiphotos-road-1072823.jpg');
-                    background-position: center 55%;"
-             aria-hidden="true">
+        <div class="page-hero__bg page-hero__bg--loopbaancheque" aria-hidden="true">
         </div>
         <div class="page-hero__overlay" aria-hidden="true"></div>
         <div class="page-hero__content">
             <p class="page-hero__label">Erkend loopbaancentrum KONNEKT</p>
             <h1 class="page-hero__title">
-                Loopbaancheque<br><em style="font-style:italic;">in Antwerpen</em>
+                Loopbaancheque<br><em>in Antwerpen</em>
             </h1>
             <p class="page-hero__intro">
                 Professionele loopbaanbegeleiding voor €90 — gefinancierd door de Vlaamse overheid
@@ -237,15 +85,15 @@
 
     <!-- ── Voorwaarden ────────────────────────────────────────────────────── -->
     <section class="content-section content-section--cream" aria-labelledby="voorwaarden-title">
-        <div class="section__inner section__inner--md" style="text-align:left;">
+        <div class="section__inner section__inner--md section__inner--left">
             <p class="section__label">Voorwaarden</p>
-            <h2 id="voorwaarden-title" class="section__title" style="text-align:left;">
+            <h2 id="voorwaarden-title" class="section__title">
                 Kom jij in aanmerking?
             </h2>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; flex-wrap: wrap;" class="conditions-columns">
+            <div class="conditions-columns">
                 <div>
-                    <p style="font-size:var(--type-label); letter-spacing:0.12em; text-transform:uppercase; color:var(--clr-earth); margin-bottom:1rem;">
+                    <p class="conditions-label conditions-label--positive">
                         Je komt in aanmerking als je:
                     </p>
                     <ul class="conditions-list">
@@ -256,7 +104,7 @@
                     </ul>
                 </div>
                 <div>
-                    <p style="font-size:var(--type-label); letter-spacing:0.12em; text-transform:uppercase; color:var(--clr-text-muted); margin-bottom:1rem;">
+                    <p class="conditions-label conditions-label--negative">
                         Niet in aanmerking bij:
                     </p>
                     <ul class="conditions-list conditions-list--no">
@@ -266,7 +114,7 @@
                 </div>
             </div>
 
-            <p style="margin-top:2rem; font-size:var(--type-body); color:var(--clr-text-muted); font-style:italic; max-width:54ch;">
+            <p class="conditions-note">
                 Voldoe je niet aan de voorwaarden? Geen probleem — ook dan kan ik
                 een coachingstraject op maat aanbieden. Neem contact op en we bekijken
                 samen de mogelijkheden.
@@ -372,10 +220,10 @@
     <section class="content-section content-section--deep" aria-labelledby="cheque-cta-title">
         <div class="section__inner">
             <p class="section__label">Stap zetten</p>
-            <h2 id="cheque-cta-title" class="section__title" style="color:var(--clr-cream);">
+            <h2 id="cheque-cta-title" class="section__title">
                 Klaar voor jouw loopbaangesprek?
             </h2>
-            <p class="section__body" style="color:rgba(245,240,235,0.7);">
+            <p class="section__body">
                 Neem contact op voor een vrijblijvend kennismakingsgesprek.
                 Dan kijken we samen of de loopbaancheque de juiste weg is voor jou.
             </p>

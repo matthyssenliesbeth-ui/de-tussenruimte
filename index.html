@@ -7,465 +7,8 @@
     <meta name="description" content="De Tussenruimte biedt life coaching, loopbaancoaching en ondernemerscoaching in Antwerpen. Een plek om te vertragen, helderheid te vinden en bewuste keuzes te maken.">
     <link rel="canonical" href="/">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/main.css">
 
-    <style>
-        /* ── Scroll-stacking: zes kaarten stapelen over elkaar ──────────────── *
-         *  Elke sectie is sticky (top:0) en vult het scherm.                   *
-         *  De hogere z-index zorgt dat de volgende kaart over de vorige schuift.*
-         * ──────────────────────────────────────────────────────────────────── */
-        .stack-section {
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            min-height: 560px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .section--over,
-        .section--diensten,
-        .section--cheque,
-        .section--retraite,
-        .section--contact {
-            border-radius: var(--radius-card) var(--radius-card) 0 0;
-            box-shadow: var(--shadow-card);
-        }
-
-        .section--hero         { z-index: 1; }
-        .section--over         { z-index: 2; }
-        .section--diensten     { z-index: 3; }
-        .section--cheque       { z-index: 4; }
-        .section--retraite     { z-index: 5; }
-        .section--contact      { z-index: 6; }
-
-        /* Achtergrondkleuren per sectie */
-        .section--hero      { background-color: var(--clr-deep); }
-        .section--over      { background-color: var(--clr-cream); }
-        .section--diensten  { background-color: var(--clr-sand); }
-        .section--cheque    { background-color: var(--clr-sage); }
-        .section--retraite  { background-color: var(--clr-stone); }
-        .section--contact   { background-color: #7a5540; }
-
-        /* ── Hero ──────────────────────────────────────────────────────────── */
-        .hero__bg {
-            position: absolute;
-            inset: 0;
-            background-image: url('assets/Images/valiphotos-road-1072823.jpg');
-            background-size: cover;
-            background-position: center 35%;
-        }
-
-        .hero__overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                155deg,
-                rgba(61, 43, 31, 0.18) 0%,
-                rgba(61, 43, 31, 0.72) 100%
-            );
-        }
-
-        .hero__content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            color: var(--clr-cream);
-            padding: clamp(1.5rem, 5vw, 3rem);
-            max-width: var(--container-md);
-        }
-
-        .hero__eyebrow {
-            font-size: var(--type-label);
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: rgba(212, 201, 188, 0.9);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero__title {
-            font-family: var(--font-heading);
-            font-size: var(--type-display);
-            font-weight: 300;
-            line-height: 1.05;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero__title em {
-            font-style: italic;
-            color: var(--clr-stone);
-        }
-
-        .hero__intro {
-            font-size: var(--type-body);
-            line-height: 1.85;
-            opacity: 0.82;
-            max-width: 52ch;
-            margin: 0 auto 2.5rem;
-        }
-
-        .hero__ctas {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        /* Scroll-hint animatie */
-        .hero__scroll-hint {
-            position: absolute;
-            bottom: clamp(1.75rem, 4vh, 2.75rem);
-            left: 50%;
-            translate: -50% 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.6rem;
-            color: var(--clr-cream);
-            opacity: 0.4;
-            font-size: var(--type-label);
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            pointer-events: none;
-        }
-
-        .hero__scroll-hint::after {
-            content: '';
-            width: 1px;
-            height: 40px;
-            background: currentColor;
-            transform-origin: top;
-            animation: hint-pulse 2.4s ease-in-out infinite;
-        }
-
-        @keyframes hint-pulse {
-            0%, 100% { opacity: 0.2; transform: scaleY(0.5); }
-            55%       { opacity: 1;   transform: scaleY(1);   }
-        }
-
-        /* ── Over De Tussenruimte ──────────────────────────────────────────── */
-        .section--over .section__title,
-        .section--over .section__label { color: var(--clr-deep); }
-        .section--over .section__body  { color: var(--clr-text-muted); }
-
-        .over__signature {
-            margin-top: clamp(2rem, 4vh, 3rem);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1.25rem;
-        }
-
-        .over__signature-line {
-            width: 48px;
-            height: 1px;
-            background-color: var(--clr-stone);
-        }
-
-        .over__signature-name {
-            font-family: var(--font-heading);
-            font-size: var(--type-lead);
-            font-style: italic;
-            color: var(--clr-earth);
-        }
-
-        /* ── Diensten ──────────────────────────────────────────────────────── */
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr));
-            gap: clamp(0.875rem, 2.5vw, 1.5rem);
-            margin-top: clamp(1.5rem, 3.5vh, 2.75rem);
-            text-align: left;
-        }
-
-        .service-card {
-            background: rgba(255, 255, 255, 0.55);
-            border-radius: 1rem;
-            padding: clamp(1.25rem, 2.5vw, 1.75rem);
-            border: 1px solid rgba(255, 255, 255, 0.7);
-            transition: transform var(--transition), box-shadow var(--transition);
-        }
-
-        .service-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 28px rgba(61, 43, 31, 0.1);
-        }
-
-        .service-card__number {
-            font-family: var(--font-heading);
-            font-size: var(--type-lead);
-            color: var(--clr-stone);
-            line-height: 1;
-            margin-bottom: 0.75rem;
-        }
-
-        .service-card__title {
-            font-family: var(--font-heading);
-            font-size: var(--type-lead);
-            font-weight: 400;
-            color: var(--clr-deep);
-            margin-bottom: 0.5rem;
-        }
-
-        .service-card__text {
-            font-size: var(--type-label);
-            color: var(--clr-text-muted);
-            line-height: 1.75;
-            margin-bottom: 1rem;
-        }
-
-        .service-card__link {
-            font-size: var(--type-label);
-            font-weight: 400;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--clr-earth);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4em;
-            transition: gap var(--transition), color var(--transition);
-        }
-
-        .service-card__link::after { content: '→'; }
-        .service-card__link:hover  { gap: 0.7em; color: var(--clr-deep); }
-
-        /* ── Loopbaancheque ────────────────────────────────────────────────── */
-        .cheque-highlights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr));
-            gap: clamp(0.75rem, 2vw, 1.25rem);
-            margin-top: clamp(1.5rem, 3vh, 2.25rem);
-        }
-
-        .cheque-item {
-            background: rgba(255, 255, 255, 0.65);
-            border-radius: 0.75rem;
-            padding: 1.25rem 1rem;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.85);
-        }
-
-        .cheque-item__value {
-            font-family: var(--font-heading);
-            font-size: var(--type-title);
-            color: var(--clr-earth);
-            line-height: 1;
-            margin-bottom: 0.4rem;
-        }
-
-        .cheque-item__desc {
-            font-size: var(--type-label);
-            color: var(--clr-text-muted);
-            line-height: 1.5;
-        }
-
-        .cheque-note {
-            font-size: var(--type-label);
-            color: var(--clr-text-muted);
-            font-style: italic;
-            max-width: 52ch;
-            margin: clamp(1rem, 2vh, 1.5rem) auto 0;
-            line-height: 1.7;
-        }
-
-        /* ── Retraite teaser ───────────────────────────────────────────────── */
-        .retraite-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: clamp(2rem, 5vw, 4rem);
-            align-items: center;
-            width: var(--container-lg);
-        }
-
-        .retraite-layout__image {
-            border-radius: 1rem;
-            overflow: hidden;
-            aspect-ratio: 4/5;
-        }
-
-        .retraite-layout__image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .retraite-layout__content .section__label,
-        .retraite-layout__content .section__title,
-        .retraite-layout__content .section__body {
-            text-align: left;
-            margin-inline: 0;
-        }
-
-        .retraite-includes {
-            margin-top: 1.25rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.45rem;
-        }
-
-        .retraite-includes li {
-            display: flex;
-            align-items: baseline;
-            gap: 0.6em;
-            font-size: var(--type-label);
-            color: var(--clr-text-muted);
-            line-height: 1.6;
-        }
-
-        .retraite-includes li::before {
-            content: '—';
-            color: var(--clr-earth);
-            flex-shrink: 0;
-        }
-
-        @media (max-width: 680px) {
-            .retraite-layout {
-                grid-template-columns: 1fr;
-                width: var(--container-sm);
-            }
-
-            .retraite-layout__image { aspect-ratio: 16/9; }
-        }
-
-        /* ── Contact ───────────────────────────────────────────────────────── */
-        .section--contact .section__label { color: rgba(245, 240, 235, 0.65); }
-        .section--contact .section__title { color: var(--clr-cream); }
-        .section--contact .section__body  { color: rgba(245, 240, 235, 0.75); }
-
-        .contact-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: clamp(3rem, 6vw, 6rem);
-            align-items: center;
-            width: var(--container-lg);
-        }
-
-        .contact-layout .section__label,
-        .contact-layout .section__title,
-        .contact-layout .section__body {
-            text-align: left;
-            margin-inline: 0;
-        }
-
-        .contact-layout .section__ctas { justify-content: flex-start; }
-
-        @media (max-width: 720px) {
-            .contact-layout {
-                grid-template-columns: 1fr;
-                width: var(--container-sm);
-            }
-
-            /* Contact is de laatste sticky-sectie — mag op mobiel meegroeien */
-            .section--contact {
-                height: auto;
-                min-height: 100vh;
-                overflow-y: visible;
-                justify-content: flex-start;
-                padding-top: calc(var(--nav-h) + 2.5rem);
-                padding-bottom: 3rem;
-            }
-        }
-
-        /* ── Contactformulier ───────────────────────────────────────────────── */
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.1rem;
-        }
-
-        .contact-form .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.35rem;
-        }
-
-        .contact-form label {
-            font-size: var(--type-label);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: rgba(245, 240, 235, 0.65);
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            font-family: var(--font-body);
-            font-size: var(--type-label);
-            font-weight: 300;
-            color: var(--clr-cream);
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(245, 240, 235, 0.25);
-            border-radius: 0.375rem;
-            padding: 0.75em 1em;
-            transition: border-color var(--transition), background var(--transition);
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .contact-form input::placeholder,
-        .contact-form textarea::placeholder {
-            color: rgba(245, 240, 235, 0.35);
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            outline: none;
-            border-color: rgba(245, 240, 235, 0.6);
-            background: rgba(255, 255, 255, 0.13);
-        }
-
-        .contact-form textarea {
-            resize: vertical;
-            min-height: 110px;
-        }
-
-        .contact-form__footer {
-            display: flex;
-            align-items: center;
-            gap: 1.25rem;
-            flex-wrap: wrap;
-            margin-top: 0.25rem;
-        }
-
-        .contact-option__heading {
-            font-size: var(--type-label);
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: rgba(245, 240, 235, 0.65);
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-option__text {
-            font-size: var(--type-label);
-            color: rgba(245, 240, 235, 0.7);
-            line-height: 1.75;
-            margin-bottom: 1.1rem;
-        }
-
-        .contact-divider {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin: 1.5rem 0;
-            font-size: var(--type-label);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: rgba(245, 240, 235, 0.35);
-        }
-
-        .contact-divider::before,
-        .contact-divider::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: rgba(245, 240, 235, 0.18);
-        }
-    </style>
 </head>
 <body>
 
@@ -535,7 +78,7 @@
         <div class="section__inner">
             <p class="section__label">Over De Tussenruimte</p>
             <h2 class="section__title">
-                Een plek tussen<br><em style="font-style:italic; font-family: var(--font-heading);">oud en nieuw</em>
+                Een plek tussen<br><em>oud en nieuw</em>
             </h2>
             <p class="section__body">
                 De tussenruimte is de pauze tussen twee momenten — waar oude zekerheden
@@ -667,7 +210,7 @@
                     <li>Ontbijt en diner verzorgd</li>
                 </ul>
 
-                <div class="section__ctas" style="justify-content: flex-start;">
+                <div class="section__ctas">
                     <a href="retraite/" class="btn btn--outline">Bekijk het aanbod</a>
                 </div>
             </div>
@@ -685,7 +228,7 @@
             <!-- Testimonials -->
             <div>
                 <p class="section__label">Ervaringen</p>
-                <div class="testimonial-grid" style="width: 100%; margin-top: 0;">
+                <div class="testimonial-grid">
                     <div class="testimonial-card">
                         <p class="testimonial-card__quote">
                             Door de coaching voel ik me weer helder en energiek
@@ -706,7 +249,7 @@
             <!-- Contactopties -->
             <div>
                 <p class="section__label">Contact</p>
-                <h2 class="section__title" style="color: var(--clr-cream); margin-bottom: 1.5rem;">
+                <h2 class="section__title">
                     Zet de eerste stap
                 </h2>
 
@@ -730,7 +273,6 @@
                     netlify-honeypot="bot-field"
                     action="/bedankt/"
                     class="contact-form"
-                    style="margin-top: 0.75rem;"
                 >
                     <input type="hidden" name="form-name" value="contact">
                     <p hidden><input name="bot-field"></p>
@@ -766,7 +308,6 @@
                             name="bericht"
                             placeholder="Vertel kort wat je zoekt…"
                             required
-                            style="min-height: 80px;"
                         ></textarea>
                     </div>
 

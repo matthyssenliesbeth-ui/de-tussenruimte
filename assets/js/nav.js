@@ -27,14 +27,14 @@
         menu.classList.add('is-open');
         toggle.classList.add('is-open');
         toggle.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden';
+        document.body.classList.add('menu-open');
     }
 
     function closeMenu() {
         menu.classList.remove('is-open');
         toggle.classList.remove('is-open');
         toggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
+        document.body.classList.remove('menu-open');
     }
 
     toggle.addEventListener('click', function () {

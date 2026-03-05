@@ -7,104 +7,8 @@
     <meta name="description" content="Een meerdaags privé verblijf in regio Antwerpen om volledig te onthaasten — al dan niet gecombineerd met coaching. Ontbijt en diner verzorgd, individuele begeleiding mogelijk.">
     <link rel="canonical" href="/retraite/">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/main.css">
 
-    <style>
-        .inclusion-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
-            gap: clamp(1rem, 2.5vw, 1.5rem);
-            margin-top: clamp(2rem, 4vh, 3.5rem);
-            width: var(--container-lg);
-        }
-
-        .inclusion-item {
-            background: rgba(255, 255, 255, 0.55);
-            border-radius: 0.75rem;
-            padding: clamp(1.25rem, 2.5vw, 1.75rem);
-            border: 1px solid rgba(255, 255, 255, 0.75);
-            text-align: left;
-        }
-
-        .inclusion-item__icon {
-            font-size: 1.4rem;
-            margin-bottom: 0.75rem;
-            line-height: 1;
-        }
-
-        .inclusion-item__title {
-            font-family: var(--font-heading);
-            font-size: var(--type-lead);
-            font-weight: 400;
-            color: var(--clr-deep);
-            margin-bottom: 0.4rem;
-        }
-
-        .inclusion-item__text {
-            font-size: var(--type-label);
-            color: var(--clr-text-muted);
-            line-height: 1.75;
-        }
-
-        .quote-block {
-            border-left: 2px solid var(--clr-earth);
-            padding-left: clamp(1.25rem, 3vw, 2rem);
-            margin: clamp(2.5rem, 5vh, 4rem) auto;
-            max-width: 52ch;
-            text-align: left;
-        }
-
-        .quote-block__text {
-            font-family: var(--font-heading);
-            font-size: var(--type-lead);
-            font-style: italic;
-            font-weight: 300;
-            color: var(--clr-deep);
-            line-height: 1.55;
-            margin-bottom: 0.75rem;
-        }
-
-        .quote-block__source {
-            font-size: var(--type-label);
-            color: var(--clr-earth);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
-        .booking-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
-            gap: clamp(0.75rem, 2vw, 1.25rem);
-            margin-top: clamp(1.75rem, 4vh, 3rem);
-            width: var(--container-md);
-        }
-
-        .booking-item {
-            text-align: center;
-            padding: 1.5rem 1rem;
-            border-radius: 0.75rem;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-        }
-
-        .booking-item__label {
-            font-size: var(--type-label);
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--clr-stone);
-            margin-bottom: 0.5rem;
-        }
-
-        .booking-item__value {
-            font-family: var(--font-heading);
-            font-size: var(--type-lead);
-            color: var(--clr-cream);
-            font-weight: 300;
-        }
-    </style>
 </head>
 <body>
 
@@ -135,16 +39,13 @@
 
     <!-- ── Hero ──────────────────────────────────────────────────────────── -->
     <header class="page-hero" aria-label="Privé retraite">
-        <div class="page-hero__bg"
-             style="background-image: url('../assets/Images/valiphotos-road-1072823.jpg');
-                    background-position: center 40%;"
-             aria-hidden="true">
+        <div class="page-hero__bg page-hero__bg--retraite" aria-hidden="true">
         </div>
         <div class="page-hero__overlay" aria-hidden="true"></div>
         <div class="page-hero__content">
             <p class="page-hero__label">Privé retraite — Antwerpen</p>
             <h1 class="page-hero__title">
-                Onthaasten met<br><em style="font-style:italic;">begeleiding</em>
+                Onthaasten met<br><em>begeleiding</em>
             </h1>
             <p class="page-hero__intro">
                 Soms heb je meer nodig dan een gesprek. Een meerdaags verblijf
@@ -166,7 +67,7 @@
                 context en maak je opnieuw verbinding met jezelf. Je hoeft niets te
                 presteren — je mag aankomen, landen en vertragen.
             </p>
-            <p class="section__body" style="margin-top: 1.25rem;">
+            <p class="section__body section__body--mt">
                 Soms ontstaat helderheid niet door méér te doen, maar door even
                 niets te moeten.
             </p>
@@ -245,19 +146,11 @@
                 onthaasten. Of je combineert het met een van de coachingstrajecten
                 voor een extra diepgaande ervaring.
             </p>
-            <ul class="retraite-options" style="margin-top:1.5rem; display:flex; flex-direction:column; gap:0.5rem; max-width:44ch; margin-inline:auto; text-align:left;">
-                <li style="font-size:var(--type-label); color:var(--clr-text-muted); display:flex; gap:0.6em;">
-                    <span style="color:var(--clr-earth);">—</span> Retraite als stand-alone
-                </li>
-                <li style="font-size:var(--type-label); color:var(--clr-text-muted); display:flex; gap:0.6em;">
-                    <span style="color:var(--clr-earth);">—</span> Retraite + life coaching
-                </li>
-                <li style="font-size:var(--type-label); color:var(--clr-text-muted); display:flex; gap:0.6em;">
-                    <span style="color:var(--clr-earth);">—</span> Retraite + loopbaancoaching
-                </li>
-                <li style="font-size:var(--type-label); color:var(--clr-text-muted); display:flex; gap:0.6em;">
-                    <span style="color:var(--clr-earth);">—</span> Retraite + ondernemerscoaching
-                </li>
+            <ul class="retraite-options">
+                <li><span>—</span> Retraite als stand-alone</li>
+                <li><span>—</span> Retraite + life coaching</li>
+                <li><span>—</span> Retraite + loopbaancoaching</li>
+                <li><span>—</span> Retraite + ondernemerscoaching</li>
             </ul>
         </div>
     </section>
@@ -265,12 +158,12 @@
 
     <!-- ── Boeken ─────────────────────────────────────────────────────────── -->
     <section class="content-section content-section--deep" aria-labelledby="boeken-title">
-        <div class="section__inner section__inner--md" style="color: var(--clr-cream);">
+        <div class="section__inner section__inner--md">
             <p class="section__label">Reserveer</p>
-            <h2 id="boeken-title" class="section__title" style="color:var(--clr-cream);">
+            <h2 id="boeken-title" class="section__title">
                 Klaar om te vertragen?
             </h2>
-            <p class="section__body" style="color: rgba(245,240,235,0.7);">
+            <p class="section__body">
                 Neem contact op voor beschikbaarheid en een persoonlijk voorstel
                 op maat. Ik bespreek graag samen wat het beste bij jou past.
             </p>
