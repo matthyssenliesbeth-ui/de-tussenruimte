@@ -60,4 +60,4 @@
 # ── Decap CMS admin ──────────────────────────────────────────────────────
 /admin/*
   Cache-Control: no-cache, no-store, must-revalidate
-  Content-Security-Policy: default-src 'none'; script-src 'self' 'unsafe-inline' https://identity.netlify.com https://unpkg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://api.netlify.com https://identity.netlify.com; frame-src https://*.netlify.app; form-action 'self' https://api.netlify.com; base-uri 'self'; object-src 'none'; frame-ancestors 'none'
+  Content-Security-Policy: default-src 'none'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://identity.netlify.com https://unpkg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://api.netlify.com https://identity.netlify.com; frame-src https://*.netlify.app; form-action 'self' https://api.netlify.com; base-uri 'self'; object-src 'none'; frame-ancestors 'none'
