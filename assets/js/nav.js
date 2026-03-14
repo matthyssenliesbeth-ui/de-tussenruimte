@@ -6,6 +6,18 @@
 (function () {
     'use strict';
 
+    // Netlify Identity links (invite/recovery/confirm) komen soms op de homepage terecht.
+    // Stuur die door naar /admin zodat Decap + Identity widget de token kan verwerken.
+    var hash = window.location.hash || '';
+    var search = window.location.search || '';
+    var identityTokenPattern = /(invite_token|recovery_token|confirmation_token|email_change_token)=/;
+
+    if (window.location.pathname.indexOf('/admin/') !== 0 &&
+        (identityTokenPattern.test(hash) || identityTokenPattern.test(search))) {
+        window.location.replace('/admin/' + search + hash);
+        return;
+    }
+
     const nav    = document.querySelector('.site-nav');
     const toggle = document.querySelector('.site-nav__toggle');
     const menu   = document.querySelector('.site-nav__mobile-menu');
