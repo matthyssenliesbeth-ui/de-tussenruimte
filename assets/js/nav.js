@@ -66,4 +66,17 @@
             toggle.focus();
         }
     });
+
+    // ── Lokale dev-fallback voor Netlify form submit ───────────────────────
+    // Live Server ondersteunt geen POST naar statische routes (geeft 405).
+    // Op localhost sturen we daarom na submit direct door naar de bedankpagina.
+    var isLocalHost = /^(localhost|127\.0\.0\.1)$/i.test(window.location.hostname);
+    var contactForm = document.querySelector('form[name="contact"]');
+
+    if (isLocalHost && contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            window.location.href = 'bedankt/';
+        });
+    }
 }());
