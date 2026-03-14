@@ -44,9 +44,9 @@
         </div>
         <div class="page-hero__overlay" aria-hidden="true"></div>
         <div class="page-hero__content">
-            <p class="page-hero__label">Artikels & Inzichten</p>
-            <h1 class="page-hero__title">Blog</h1>
-            <p class="page-hero__intro">
+            <p class="page-hero__label" data-cms="blog.hero.label">Artikels & Inzichten</p>
+            <h1 class="page-hero__title" data-cms="blog.hero.title">Blog</h1>
+            <p class="page-hero__intro" data-cms="blog.hero.intro">
                 Over life coaching, loopbaan, persoonlijk groei en bewust leven —
                 voor wie eventjes wil stilstaan.
             </p>
@@ -58,120 +58,14 @@
     <section class="content-section content-section--cream" aria-labelledby="artikels-title">
         <h2 id="artikels-title" class="sr-only">Alle artikels</h2>
 
-        <div class="article-grid">
-
-            <!-- Uitgelicht artikel -->
-            <article class="article-card article-card--featured">
-                <div class="article-card__image">
-                    <img
-                        src="../assets/Images/kanenori-natural-6693234_1280.jpg"
-                        alt="Landschap — loopbaancheque artikel"
-                        loading="lazy"
-                    >
-                </div>
-                <div class="article-card__body">
-                    <div class="article-card__meta">
-                        <span class="article-card__category">Loopbaan</span>
-                        <span class="article-card__date">Februari 2026</span>
-                    </div>
-                    <h3 class="article-card__title">
-                        Loopbaancheque in Antwerpen: alles wat je moet weten
-                        voor je begint
-                    </h3>
-                    <p class="article-card__excerpt">
-                        Wat is de loopbaancheque precies, voor wie is hij bedoeld en
-                        hoe vraag je hem aan? In dit artikel leg ik stap voor stap uit
-                        hoe je als werknemer of zelfstandige in Antwerpen optimaal
-                        gebruik maakt van deze Vlaamse maatregel voor loopbaanbegeleiding.
-                    </p>
-                    <a href="#" class="article-card__readmore">Lees het artikel</a>
-                </div>
-            </article>
-
-            <!-- Artikel 2 -->
-            <article class="article-card">
-                <div class="article-card__image">
-                    <img
-                        src="../assets/Images/valiphotos-road-1072823.jpg"
-                        alt="Weg door de natuur — life coaching"
-                        loading="lazy"
-                    >
-                </div>
-                <div class="article-card__body">
-                    <div class="article-card__meta">
-                        <span class="article-card__category">Life coaching</span>
-                        <span class="article-card__date">Januari 2026</span>
-                    </div>
-                    <h3 class="article-card__title">
-                        Wat is life coaching — en voor wie is het écht geschikt?
-                    </h3>
-                    <p class="article-card__excerpt">
-                        Life coaching is niet voor mensen met problemen. Het is voor
-                        mensen die willen groeien. Ontdek wat je van een coachingstraject
-                        kan verwachten en hoe je weet of het bij jou past.
-                    </p>
-                    <a href="#" class="article-card__readmore">Lees het artikel</a>
-                </div>
-            </article>
-
-            <!-- Artikel 3 -->
-            <article class="article-card">
-                <div class="article-card__image">
-                    <img
-                        src="../assets/Images/kanenori-autumn-2183489.jpg"
-                        alt="Herfstomgeving — retraite artikel"
-                        loading="lazy"
-                    >
-                </div>
-                <div class="article-card__body">
-                    <div class="article-card__meta">
-                        <span class="article-card__category">Retraite</span>
-                        <span class="article-card__date">December 2025</span>
-                    </div>
-                    <h3 class="article-card__title">
-                        Privé retraite of groepsretraite: wat past het beste bij jou?
-                    </h3>
-                    <p class="article-card__excerpt">
-                        Een retraite is niet één ding. Of je nu zoekt naar rust,
-                        diepgang of verbinding met anderen — de keuze voor privé of
-                        groep maakt een groot verschil. Dit zijn de overwegingen.
-                    </p>
-                    <a href="#" class="article-card__readmore">Lees het artikel</a>
-                </div>
-            </article>
-
-            <!-- Artikel 4 -->
-            <article class="article-card">
-                <div class="article-card__image">
-                    <img
-                        src="../assets/Images/valiphotos-road-1072823.jpg"
-                        alt="Grassen — ondernemen artikel"
-                        loading="lazy"
-                    >
-                </div>
-                <div class="article-card__body">
-                    <div class="article-card__meta">
-                        <span class="article-card__category">Ondernemen</span>
-                        <span class="article-card__date">November 2025</span>
-                    </div>
-                    <h3 class="article-card__title">
-                        Sterk ondernemen begint bij innerlijke helderheid
-                    </h3>
-                    <p class="article-card__excerpt">
-                        Ondernemers staan zelden stil. Maar de beste strategische
-                        beslissingen komen vanuit rust, niet vanuit stress. Hoe
-                        ondernemerscoaching je helpt om hoofd en hart te verbinden.
-                    </p>
-                    <a href="#" class="article-card__readmore">Lees het artikel</a>
-                </div>
-            </article>
-
+        <div id="blog-articles" class="article-grid">
+            <p class="section__body">Artikels laden...</p>
         </div>
 
         <!-- Newsletter banner -->
         <div class="newsletter-banner">
-            <h2 class="newsletter-banner__title">Nieuwe artikels ontvangen?</h2>
-            <p class="newsletter-banner__text">
+            <h2 class="newsletter-banner__title" data-cms="blog.newsletter.title">Nieuwe artikels ontvangen?</h2>
+            <p class="newsletter-banner__text" data-cms="blog.newsletter.text">
                 Schrijf je in voor de nieuwsbrief en ontvang regelmatig
                 inzichten over coaching, loopbaan en bewust leven.
             </p>
@@ -203,5 +97,7 @@
     </footer>
 
     <script src="../assets/js/nav.js"></script>
+    <script src="../assets/js/content.js"></script>
+    <script src="../assets/js/blog.js"></script>
 </body>
 </html>
