@@ -1,0 +1,26 @@
+backend:
+  name: git-gateway
+  branch: main
+
+locale: nl
+publish_mode: simple
+media_folder: assets/Images/uploads
+public_folder: /assets/Images/uploads
+
+collections:
+  - name: blog
+    label: Blog
+    label_singular: Artikel
+    folder: blog/posts
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} - {{date}}"
+    fields:
+      - { label: Titel, name: title, widget: string }
+      - { label: Publicatiedatum, name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false }
+      - { label: Categorie, name: category, widget: select, options: [Loopbaan, Life coaching, Retraite, Ondernemen] }
+      - { label: Samenvatting, name: excerpt, widget: text }
+      - { label: Uitgelichte afbeelding, name: image, widget: image, required: false }
+      - { label: Inhoud, name: body, widget: markdown }
