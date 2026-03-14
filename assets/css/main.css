@@ -409,6 +409,8 @@ ul       { list-style: none; }
 
 /* ─── Footer ─────────────────────────────────────────────────────────────── */
 .site-footer {
+    position: relative;
+    z-index: 10;
     background-color: var(--clr-deep);
     padding: clamp(1.5rem, 4vh, 2.5rem) clamp(1.25rem, 4vw, 3rem);
     display: flex;
@@ -444,8 +446,8 @@ ul       { list-style: none; }
 
 .footer__credit {
     width: 100%;
-    font-size: 0.7rem;
-    color: rgba(245, 240, 235, 0.2);
+    font-size: 0.8rem;
+    color: rgba(245, 240, 235, 0.4);
     letter-spacing: 0.05em;
     text-align: right;
 }
@@ -456,7 +458,7 @@ ul       { list-style: none; }
     transition: color var(--transition);
 }
 
-.footer__credit a:hover { color: rgba(245, 240, 235, 0.5); }
+.footer__credit a:hover { color: rgba(245, 240, 235, 0.85); }
 
 /* ─── Startpagina: Scroll-stack ─────────────────────────────────────────── */
 .stack-section {
