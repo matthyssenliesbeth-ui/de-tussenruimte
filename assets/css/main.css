@@ -1567,6 +1567,10 @@ ul       { list-style: none; }
 }
 
 /* ── Blog post page ─────────────────────────────────────────────────────── */
+#post-main {
+    background-color: var(--clr-cream);
+}
+
 .post-hero {
     padding: clamp(5rem, 10vh, 8rem) 0 clamp(2rem, 5vh, 4rem);
     background: var(--clr-cream);
