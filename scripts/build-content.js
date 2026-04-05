@@ -183,6 +183,7 @@ function buildPostHtml(post, bodyHtml) {
         <header class="post-hero">
             <p class="post-hero__label">${escapeHtml(post.category)}</p>
             <h1 class="post-hero__title">${escapeHtml(post.title)}</h1>
+            ${post.excerpt ? `<p class="post-hero__excerpt">${escapeHtml(post.excerpt)}</p>` : ''}
             <div class="post-hero__meta">
                 <span>${escapeHtml(formatDate(post.date))}</span>
             </div>
