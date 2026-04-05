@@ -30,4 +30,6 @@ Voor het eerst in decennia voel ik terug die passie. Die *burning flame* die ik 
 
 Bedankt, Liesbeth.\
 \
-Groetjes, [ Johan Beysen](https://johanbeysen.online)
+Groetjes, 
+
+[Johan Beysen](https://johanbeysen.online)
