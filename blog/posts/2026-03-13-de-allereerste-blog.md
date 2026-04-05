@@ -26,9 +26,8 @@ Ze fluisterde al jaren over technologie, over systemen, over de spanning van het
 
 Op mijn 48ste heb ik mijn stoute schoenen aangetrokken en mijn dromen nagejaagd. Een graduaatsopleiding van twee jaar gevolgd, en nu zet ik mijn eerste stappen in het veld als ethisch hacker. En wat ik daarin vind is niet zomaar een nieuwe job — het is een roeping. Elke dag sta ik op met zin om bij te leren, om verder te gaan, om meer te weten. De energie is er gewoon — niet geforceerd, niet opgewerkt, gewoon... er. Alsof er een motor is aangeslagen die al die jaren had stilgestaan.
 
-
 Voor het eerst in decennia voel ik terug die passie. Die *burning flame* die ik zo lang had gemist. En nu ze er terug is, laat ik haar ook niet meer los.
 
 Bedankt, Liesbeth.\
 \
-Groetjes[ Johan Beysen](https://johanbeysen.online)
+Groetjes, [ Johan Beysen](https://johanbeysen.online)
