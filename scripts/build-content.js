@@ -18,16 +18,30 @@ function parseFrontmatter(fileContent) {
 
   const meta = {};
   const rawMeta = match[1].split('\n');
+  let i = 0;
 
-  for (const line of rawMeta) {
-    const separatorIndex = line.indexOf(':');
-    if (separatorIndex === -1) continue;
+  while (i < rawMeta.length) {
+    const separatorIndex = rawMeta[i].indexOf(':');
+    if (separatorIndex === -1) { i++; continue; }
 
-    const key = line.slice(0, separatorIndex).trim();
-    let value = line.slice(separatorIndex + 1).trim();
+    const key = rawMeta[i].slice(0, separatorIndex).trim();
+    let value = rawMeta[i].slice(separatorIndex + 1).trim();
+
+    // Handle YAML block scalar (> or |)
+    if (value === '>' || value === '|') {
+      const blockLines = [];
+      i++;
+      while (i < rawMeta.length && (rawMeta[i].startsWith('  ') || rawMeta[i].trim() === '')) {
+        blockLines.push(rawMeta[i].trim());
+        i++;
+      }
+      meta[key] = blockLines.filter(Boolean).join(' ');
+      continue;
+    }
 
     value = value.replace(/^"|"$/g, '').replace(/^'|'$/g, '');
     meta[key] = value;
+    i++;
   }
 
   const body = fileContent.slice(match[0].length).trim();

@@ -38,22 +38,28 @@
 
         var markup = posts.map(function (post, index) {
             var image = normalizeUrl(post.image || 'assets/Images/valiphotos-road-1072823.jpg');
-            var cardClass = index === 0 ? 'article-card article-card--featured' : 'article-card';
+            var featured = index === 0;
+            var cardClass = featured ? 'article-card article-card--featured' : 'article-card';
+            var linkClass = featured ? 'article-card-link article-card-link--featured' : 'article-card-link';
+            var url = '/blog/post/?slug=' + encodeURIComponent(post.slug || '');
 
             return [
-                '<article class="' + cardClass + '">',
-                '  <div class="article-card__image">',
-                '    <img src="' + escapeHtml(image) + '" alt="' + escapeHtml(post.title || 'Blog afbeelding') + '" loading="lazy">',
-                '  </div>',
-                '  <div class="article-card__body">',
-                '    <div class="article-card__meta">',
-                '      <span class="article-card__category">' + escapeHtml(post.category || 'Blog') + '</span>',
-                '      <span class="article-card__date">' + escapeHtml(formatMonthYear(post.date)) + '</span>',
+                '<a href="' + escapeHtml(url) + '" class="' + linkClass + '">',
+                '  <article class="' + cardClass + '">',
+                '    <div class="article-card__image">',
+                '      <img src="' + escapeHtml(image) + '" alt="' + escapeHtml(post.title || 'Blog afbeelding') + '" loading="lazy">',
                 '    </div>',
-                '    <h3 class="article-card__title">' + escapeHtml(post.title || 'Zonder titel') + '</h3>',
-                '    <p class="article-card__excerpt">' + escapeHtml(post.excerpt || '') + '</p>',
-                '  </div>',
-                '</article>'
+                '    <div class="article-card__body">',
+                '      <div class="article-card__meta">',
+                '        <span class="article-card__category">' + escapeHtml(post.category || 'Blog') + '</span>',
+                '        <span class="article-card__date">' + escapeHtml(formatMonthYear(post.date)) + '</span>',
+                '      </div>',
+                '      <h3 class="article-card__title">' + escapeHtml(post.title || 'Zonder titel') + '</h3>',
+                '      <p class="article-card__excerpt">' + escapeHtml(post.excerpt || '') + '</p>',
+                '      <span class="article-card__readmore">Lees meer</span>',
+                '    </div>',
+                '  </article>',
+                '</a>'
             ].join('');
         }).join('');
 
