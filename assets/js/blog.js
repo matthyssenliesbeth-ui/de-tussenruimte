@@ -41,7 +41,7 @@
             var featured = index === 0;
             var cardClass = featured ? 'article-card article-card--featured' : 'article-card';
             var linkClass = featured ? 'article-card-link article-card-link--featured' : 'article-card-link';
-            var url = '/blog/post/?slug=' + encodeURIComponent(post.slug || '');
+            var url = '/blog/posts/' + encodeURIComponent(post.slug || '') + '/';
 
             return [
                 '<a href="' + escapeHtml(url) + '" class="' + linkClass + '">',
