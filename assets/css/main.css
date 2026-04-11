@@ -500,7 +500,7 @@ ul       { list-style: none; }
 .hero__bg {
     position: absolute;
     inset: 0;
-    background-image: url('../Images/valiphotos-road-1072823.jpg');
+    background-image: url('../Images/algemeen/pexels-path-1839000.jpg');
     background-size: cover;
     background-position: center 35%;
 }
@@ -615,6 +615,51 @@ ul       { list-style: none; }
     font-size: var(--type-lead);
     font-style: italic;
     color: var(--clr-earth);
+}
+
+/* ─── Startpagina: Over — portret layout ────────────────────────────────── */
+.over__layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: center;
+    width: var(--container-lg);
+}
+
+.over__image {
+    border-radius: 1rem;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    flex-shrink: 0;
+}
+
+.over__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.over__layout .section__inner {
+    width: 100%;
+    text-align: left;
+}
+
+.over__layout .section__label,
+.over__layout .section__title,
+.over__layout .section__body {
+    text-align: left;
+    margin-inline: 0;
+}
+
+.over__layout .over__signature { justify-content: flex-start; }
+
+@media (max-width: 720px) {
+    .over__layout {
+        grid-template-columns: 1fr;
+        width: var(--container-sm);
+    }
+    .over__image { aspect-ratio: 4/3; }
 }
 
 /* ─── Startpagina: Diensten ──────────────────────────────────────────────── */
@@ -946,6 +991,48 @@ ul       { list-style: none; }
     font-size: var(--type-label);
     color: var(--clr-text-muted);
     line-height: 1.75;
+}
+
+/* ─── Retraite: foto-grid ────────────────────────────────────────────────── */
+.retraite-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 0.625rem;
+    width: var(--container-lg);
+    margin-top: clamp(2rem, 4vh, 3rem);
+}
+
+.retraite-photo-grid__item {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+}
+
+.retraite-photo-grid__item--tall {
+    grid-row: span 2;
+    aspect-ratio: unset;
+}
+
+.retraite-photo-grid__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.retraite-photo-grid__item:hover img { transform: scale(1.03); }
+
+@media (max-width: 680px) {
+    .retraite-photo-grid {
+        grid-template-columns: 1fr 1fr;
+        width: var(--container-sm);
+    }
+    .retraite-photo-grid__item--tall {
+        grid-row: span 1;
+        aspect-ratio: 4/3;
+    }
 }
 
 .quote-block {
@@ -1370,19 +1457,124 @@ ul       { list-style: none; }
 
 /* ─── Page hero achtergronden ────────────────────────────────────────────── */
 .page-hero__bg--retraite {
-    background-image: url('../Images/valiphotos-road-1072823.jpg');
-    background-position: center 40%;
+    background-image: url('../Images/algemeen/dolfiam-boardwalk-537113.jpg');
+    background-position: center 50%;
 }
 
 .page-hero__bg--loopbaancheque {
-    background-image: url('../Images/valiphotos-road-1072823.jpg');
+    background-image: url('../Images/algemeen/raychy13-summer-8848728.jpg');
     background-position: center 55%;
 }
 
-.page-hero__bg--blog {
-    background-image: url('../Images/valiphotos-road-1072823.jpg');
+.page-hero__bg--loopbaancoaching {
+    background-image: url('../Images/algemeen/dolfiam-boardwalk-537113.jpg');
     background-position: center 60%;
 }
+
+.page-hero__bg--life-coaching {
+    background-image: url('../Images/algemeen/heikiwi-sunlight-8555131.jpg');
+    background-position: center 50%;
+}
+
+.page-hero__bg--ondernemerscoaching {
+    background-image: url('../Images/algemeen/marys_fotos-stone-3630617.jpg');
+    background-position: center 40%;
+}
+
+.page-hero__bg--blog {
+    background-image: url('../Images/algemeen/heikiwi-graser-10054053.jpg');
+    background-position: center 50%;
+}
+
+/* ─── Lightbox ───────────────────────────────────────────────────────────── */
+.lightbox-trigger {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: zoom-in;
+}
+
+.lightbox-trigger--hidden {
+    display: none;
+}
+
+.lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(30, 20, 12, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.lightbox-overlay.is-open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.lightbox-inner {
+    position: relative;
+    max-width: min(90vw, 1100px);
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-img {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 0.5rem;
+    display: block;
+    box-shadow: 0 8px 48px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-btn {
+    position: absolute;
+    background: rgba(245, 240, 235, 0.15);
+    border: 1px solid rgba(245, 240, 235, 0.25);
+    color: var(--clr-cream);
+    font-size: 1.4rem;
+    line-height: 1;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+}
+
+.lightbox-btn:hover { background: rgba(245, 240, 235, 0.28); }
+
+.lightbox-btn--prev  { left: -3.5rem; }
+.lightbox-btn--next  { right: -3.5rem; }
+.lightbox-btn--close { top: -3rem; right: 0; }
+
+.lightbox-counter {
+    position: absolute;
+    bottom: -2.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: var(--type-label);
+    color: rgba(245, 240, 235, 0.55);
+    letter-spacing: 0.15em;
+    white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+    .lightbox-btn--prev  { left: 0.25rem; }
+    .lightbox-btn--next  { right: 0.25rem; }
+    .lightbox-btn--close { top: 0.25rem; right: 0.25rem; }
+}
+
+body.lightbox-open { overflow: hidden; }
 
 /* ─── Bedankt pagina ────────────────────────────────────────────────────── */
 .thankyou-section {
@@ -1416,6 +1608,101 @@ ul       { list-style: none; }
     line-height: 1.8;
     max-width: 44ch;
     margin: 0 auto 2.5rem;
+}
+
+/* ─── Subpagina coaching: dienst-layout (foto + tekst naast elkaar) ─────── */
+.dienst-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: start;
+    width: var(--container-lg);
+}
+
+.dienst-layout--reverse { direction: rtl; }
+.dienst-layout--reverse > * { direction: ltr; }
+
+.dienst-layout__image {
+    border-radius: 1rem;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+}
+
+.dienst-layout__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+.dienst-layout__content .section__label,
+.dienst-layout__content .section__title,
+.dienst-layout__content .section__body {
+    text-align: left;
+    margin-inline: 0;
+}
+
+@media (max-width: 780px) {
+    .dienst-layout,
+    .dienst-layout--reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        width: var(--container-sm);
+    }
+    .dienst-layout__image { aspect-ratio: 4/3; }
+}
+
+/* ─── Subpagina coaching: sfeerfoto breed ────────────────────────────────── */
+.sfeer-image {
+    width: var(--container-lg);
+    border-radius: 1rem;
+    overflow: hidden;
+    aspect-ratio: 21/7;
+}
+
+.sfeer-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    display: block;
+}
+
+/* ─── Subpagina coaching: duo foto's ────────────────────────────────────── */
+.dienst-duo-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    width: var(--container-lg);
+}
+
+.dienst-duo-images__item {
+    border-radius: 0.75rem;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+}
+
+.dienst-duo-images__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .dienst-duo-images { grid-template-columns: 1fr; }
+    .sfeer-image { aspect-ratio: 16/7; }
+}
+
+/* ─── VDAB badge ─────────────────────────────────────────────────────────── */
+.vdab-badge {
+    display: block;
+    width: clamp(180px, 30%, 280px);
+    height: auto;
+    margin-top: clamp(1.5rem, 3vh, 2.5rem);
+    border-radius: 0.375rem;
+    opacity: 0.92;
 }
 
 /* ─── Utility classes ────────────────────────────────────────────────────── */
