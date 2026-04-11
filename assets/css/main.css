@@ -500,7 +500,8 @@ ul       { list-style: none; }
 .hero__bg {
     position: absolute;
     inset: 0;
-    background-image: url('../Images/algemeen/pexels-path-1839000.jpg');
+    background-image: url('../Images/algemeen/pexels-path-1839000.webp');
+    background-image: image-set(url('../Images/algemeen/pexels-path-1839000.webp') type('image/webp'), url('../Images/algemeen/pexels-path-1839000.jpg') type('image/jpeg'));
     background-size: cover;
     background-position: center 35%;
 }
@@ -1457,32 +1458,38 @@ ul       { list-style: none; }
 
 /* ─── Page hero achtergronden ────────────────────────────────────────────── */
 .page-hero__bg--retraite {
-    background-image: url('../Images/algemeen/dolfiam-boardwalk-537113.jpg');
+    background-image: url('../Images/algemeen/dolfiam-boardwalk-537113.webp');
+    background-image: image-set(url('../Images/algemeen/dolfiam-boardwalk-537113.webp') type('image/webp'), url('../Images/algemeen/dolfiam-boardwalk-537113.jpg') type('image/jpeg'));
     background-position: center 50%;
 }
 
 .page-hero__bg--loopbaancheque {
-    background-image: url('../Images/algemeen/raychy13-summer-8848728.jpg');
+    background-image: url('../Images/algemeen/raychy13-summer-8848728.webp');
+    background-image: image-set(url('../Images/algemeen/raychy13-summer-8848728.webp') type('image/webp'), url('../Images/algemeen/raychy13-summer-8848728.jpg') type('image/jpeg'));
     background-position: center 55%;
 }
 
 .page-hero__bg--loopbaancoaching {
-    background-image: url('../Images/algemeen/dolfiam-boardwalk-537113.jpg');
+    background-image: url('../Images/algemeen/dolfiam-boardwalk-537113.webp');
+    background-image: image-set(url('../Images/algemeen/dolfiam-boardwalk-537113.webp') type('image/webp'), url('../Images/algemeen/dolfiam-boardwalk-537113.jpg') type('image/jpeg'));
     background-position: center 60%;
 }
 
 .page-hero__bg--life-coaching {
-    background-image: url('../Images/algemeen/heikiwi-sunlight-8555131.jpg');
+    background-image: url('../Images/algemeen/heikiwi-sunlight-8555131.webp');
+    background-image: image-set(url('../Images/algemeen/heikiwi-sunlight-8555131.webp') type('image/webp'), url('../Images/algemeen/heikiwi-sunlight-8555131.jpg') type('image/jpeg'));
     background-position: center 50%;
 }
 
 .page-hero__bg--ondernemerscoaching {
-    background-image: url('../Images/algemeen/marys_fotos-stone-3630617.jpg');
+    background-image: url('../Images/algemeen/marys_fotos-stone-3630617.webp');
+    background-image: image-set(url('../Images/algemeen/marys_fotos-stone-3630617.webp') type('image/webp'), url('../Images/algemeen/marys_fotos-stone-3630617.jpg') type('image/jpeg'));
     background-position: center 40%;
 }
 
 .page-hero__bg--blog {
-    background-image: url('../Images/algemeen/heikiwi-graser-10054053.jpg');
+    background-image: url('../Images/algemeen/heikiwi-graser-10054053.webp');
+    background-image: image-set(url('../Images/algemeen/heikiwi-graser-10054053.webp') type('image/webp'), url('../Images/algemeen/heikiwi-graser-10054053.jpg') type('image/jpeg'));
     background-position: center 50%;
 }
 
