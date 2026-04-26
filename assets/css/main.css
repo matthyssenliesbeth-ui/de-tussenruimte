@@ -490,7 +490,7 @@ ul       { list-style: none; }
 .section--contact  { z-index: 6; }
 
 .section--hero      { background-color: var(--clr-deep); }
-.section--over      { background-color: var(--clr-cream); }
+.section--over      { background-color: var(--clr-cream); position: relative; height: auto; min-height: 100vh; padding-block: clamp(5rem, 9vh, 8rem); justify-content: flex-start; }
 .section--diensten  { background-color: var(--clr-sand); }
 .section--cheque    { background-color: var(--clr-sage); }
 .section--retraite  { background-color: var(--clr-stone); }
@@ -686,11 +686,7 @@ ul       { list-style: none; }
 }
 
 .service-card__number {
-    font-family: var(--font-heading);
-    font-size: var(--type-lead);
-    color: var(--clr-stone);
-    line-height: 1;
-    margin-bottom: 0.75rem;
+    display: none;
 }
 
 .service-card__title {
@@ -1697,6 +1693,23 @@ body.lightbox-open { overflow: hidden; }
     display: block;
 }
 
+.dienst-duo-images__item--quote {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--clr-sage);
+    padding: clamp(2rem, 5vw, 3.5rem);
+    aspect-ratio: auto;
+    min-height: 200px;
+}
+
+.dienst-duo-images__item--quote .quote-block {
+    margin: 0;
+    max-width: 100%;
+    border-left: none;
+    padding-left: 0;
+}
+
 @media (max-width: 600px) {
     .dienst-duo-images { grid-template-columns: 1fr; }
     .sfeer-image { aspect-ratio: 16/7; }
@@ -1708,8 +1721,20 @@ body.lightbox-open { overflow: hidden; }
     width: clamp(180px, 30%, 280px);
     height: auto;
     margin-top: clamp(1.5rem, 3vh, 2.5rem);
+    margin-inline: auto;
     border-radius: 0.375rem;
     opacity: 0.92;
+}
+
+.content-section--sage .section__body a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: 500;
+}
+
+.content-section--sage .section__body a:hover {
+    opacity: 0.75;
 }
 
 /* ─── Utility classes ────────────────────────────────────────────────────── */
