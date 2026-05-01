@@ -64,8 +64,8 @@
                 Voor leven, loopbaan en ondernemen — in Antwerpen en online.
             </p>
             <div class="hero__ctas">
-                <a href="#contact" class="btn btn--primary">Plan een kennismakingsgesprek</a>
-                <a href="#diensten" class="btn btn--outline-light">Bekijk aanbod</a>
+                <a href="#contact" class="btn btn--primary">Vrijblijvende kennismaking</a>
+                <a href="#diensten" class="btn btn--outline-light">Bekijk het aanbod</a>
             </div>
         </div>
 
@@ -273,20 +273,33 @@
             <!-- Testimonials -->
             <div>
                 <p class="section__label">Ervaringen</p>
-                <div class="testimonial-grid">
-                    <div class="testimonial-card">
-                        <p class="testimonial-card__quote">
-                            Door de coaching voel ik me weer helder en energiek
-                            in mijn werk én privéleven.
-                        </p>
-                        <span class="testimonial-card__author">— Sofie, life coaching</span>
+                <div class="testimonial-carousel">
+                    <div class="testimonial-carousel__track-wrapper">
+                        <div class="testimonial-carousel__track">
+                            <a href="ervaringen/#thomas" class="testimonial-card">
+                                <p class="testimonial-card__quote">
+                                    Ze wist kwaliteiten bij me naar boven te halen waar ik me zelf totaal niet van bewust was.
+                                </p>
+                                <span class="testimonial-card__author">— Thomas S., loopbaancoaching</span>
+                            </a>
+                            <a href="ervaringen/#maxim" class="testimonial-card">
+                                <p class="testimonial-card__quote">
+                                    Haar oprecht luisteren bracht rust in dat tollend hoofd van me.
+                                </p>
+                                <span class="testimonial-card__author">— Maxim L., loopbaancoaching</span>
+                            </a>
+                        </div>
                     </div>
-                    <div class="testimonial-card">
-                        <p class="testimonial-card__quote">
-                            Het verblijf gaf me de rust en inzichten die ik
-                            al lang zocht.
-                        </p>
-                        <span class="testimonial-card__author">— Thomas, retraite</span>
+                    <div class="testimonial-carousel__footer">
+                        <div class="testimonial-carousel__controls">
+                            <button class="testimonial-carousel__btn" data-dir="-1" aria-label="Vorige">←</button>
+                            <div class="testimonial-carousel__dots">
+                                <button class="testimonial-carousel__dot testimonial-carousel__dot--active" aria-label="Review 1"></button>
+                                <button class="testimonial-carousel__dot" aria-label="Review 2"></button>
+                            </div>
+                            <button class="testimonial-carousel__btn" data-dir="1" aria-label="Volgende">→</button>
+                        </div>
+                        <a href="ervaringen/" class="testimonial-carousel__link">Alle ervaringen</a>
                     </div>
                 </div>
             </div>
@@ -384,6 +397,7 @@
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     <script src="assets/js/nav.js"></script>
     <script src="assets/js/content.js"></script>
+    <script src="assets/js/testimonial-carousel.js"></script>
     <script>
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", function(user) {

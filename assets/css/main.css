@@ -2001,3 +2001,159 @@ body.lightbox-open { overflow: hidden; }
 
 .post-back::before { content: '←'; }
 .post-back:hover { gap: 0.7em; color: var(--clr-deep); }
+
+/* ── Testimonial carousel ────────────────────────────────────────────────── */
+.testimonial-carousel {
+    width: 100%;
+    margin-top: clamp(1rem, 2vh, 1.5rem);
+}
+
+.testimonial-carousel__track-wrapper {
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.testimonial-carousel__track {
+    display: flex;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.testimonial-carousel__track > * {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+a.testimonial-card {
+    display: block;
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition);
+}
+a.testimonial-card:hover {
+    background: rgba(255, 255, 255, 0.13);
+    transform: translateY(-2px);
+}
+
+.testimonial-carousel__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 0.875rem;
+}
+
+.testimonial-carousel__controls {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.testimonial-carousel__btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--clr-cream);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--transition);
+    flex-shrink: 0;
+    font-size: 0.8rem;
+    line-height: 1;
+}
+.testimonial-carousel__btn:hover { background: rgba(255, 255, 255, 0.18); }
+
+.testimonial-carousel__dots {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+}
+
+.testimonial-carousel__dot {
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background var(--transition), transform var(--transition);
+}
+.testimonial-carousel__dot--active {
+    background: var(--clr-cream);
+    transform: scale(1.35);
+}
+
+.testimonial-carousel__link {
+    font-size: var(--type-label);
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--clr-stone);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    transition: gap var(--transition), color var(--transition);
+    white-space: nowrap;
+}
+.testimonial-carousel__link::after { content: '→'; }
+.testimonial-carousel__link:hover  { gap: 0.7em; color: var(--clr-cream); }
+
+/* ── Ervaringen pagina: hero achtergrond ─────────────────────────────────── */
+.page-hero__bg--ervaringen {
+    background-image: url('../Images/algemeen/barbaraalane-soft-1678662.webp');
+    background-image: image-set(url('../Images/algemeen/barbaraalane-soft-1678662.webp') type('image/webp'), url('../Images/algemeen/barbaraalane-soft-1678662.jpg') type('image/jpeg'));
+    background-position: center 40%;
+}
+
+/* ── Ervaringen pagina: review entries ───────────────────────────────────── */
+.review-entry {
+    width: var(--container-md);
+    margin-inline: auto;
+    padding-top: clamp(2rem, 4vh, 3.5rem);
+    padding-bottom: clamp(2rem, 4vh, 3.5rem);
+}
+
+.review-entry + .review-entry {
+    border-top: 1px solid var(--clr-stone);
+}
+
+.review-entry__label {
+    font-size: var(--type-label);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--clr-earth);
+    margin-bottom: 0.4rem;
+}
+
+.review-entry__name {
+    font-family: var(--font-heading);
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 400;
+    color: var(--clr-deep);
+    margin-bottom: 1.75rem;
+}
+
+.review-entry__quote-mark {
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    line-height: 0.8;
+    color: var(--clr-earth);
+    opacity: 0.35;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.review-entry__body {
+    margin: 0;
+    font-size: var(--type-lead);
+    font-style: italic;
+    font-weight: 300;
+    font-family: var(--font-heading);
+    color: var(--clr-text);
+    line-height: 1.7;
+}
+
+.review-entry__body p + p { margin-top: 1.1em; }
