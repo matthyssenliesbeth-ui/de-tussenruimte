@@ -140,6 +140,9 @@ body {
     background-color: var(--clr-deep);
     line-height: 1.6;
     overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 body.menu-open { overflow: hidden; }
@@ -419,6 +422,7 @@ ul       { list-style: none; }
     justify-content: space-between;
     gap: 1rem;
     border-top: 1px solid rgba(245, 240, 235, 0.1);
+    margin-top: auto;
 }
 
 .footer__brand {
