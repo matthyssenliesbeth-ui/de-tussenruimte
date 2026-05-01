@@ -404,6 +404,9 @@
     <script>
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", function(user) {
+          var hash = window.location.hash || '';
+          var hasToken = hash.includes('invite_token') || hash.includes('confirmation_token') || hash.includes('recovery_token');
+          if (!hasToken) { window.netlifyIdentity.close(); }
           if (!user) {
             window.netlifyIdentity.on("login", function() {
               document.location.href = "/admin/";
