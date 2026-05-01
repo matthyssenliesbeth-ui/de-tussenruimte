@@ -10,7 +10,11 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <style>[data-netlify-identity-button]{display:none!important}</style>
+    <style>
+      [data-netlify-identity-widget],
+      [data-netlify-identity-button] { display: none !important; }
+      body.netlify-auth-flow [data-netlify-identity-widget] { display: block !important; }
+    </style>
 </head>
 <body>
 
@@ -402,18 +406,21 @@
     <script src="assets/js/nav.js"></script>
     <script src="assets/js/content.js"></script>
     <script>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", function(user) {
-          var hash = window.location.hash || '';
-          var hasToken = hash.includes('invite_token') || hash.includes('confirmation_token') || hash.includes('recovery_token');
-          if (!hasToken) { window.netlifyIdentity.close(); }
-          if (!user) {
-            window.netlifyIdentity.on("login", function() {
-              document.location.href = "/admin/";
-            });
-          }
-        });
-      }
+      (function() {
+        var hash = window.location.hash || '';
+        if (hash.includes('invite_token') || hash.includes('confirmation_token') || hash.includes('recovery_token')) {
+          document.body.classList.add('netlify-auth-flow');
+        }
+        if (window.netlifyIdentity) {
+          window.netlifyIdentity.on("init", function(user) {
+            if (!user) {
+              window.netlifyIdentity.on("login", function() {
+                document.location.href = "/admin/";
+              });
+            }
+          });
+        }
+      })();
     </script>
 </body>
 </html>
