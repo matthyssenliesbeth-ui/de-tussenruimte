@@ -8,41 +8,246 @@ media_folder: assets/Images/uploads
 public_folder: /assets/Images/uploads
 
 collections:
+
+  # ════════════════════════════════════════════
+  # 1. BLOG ARTIKELS
+  # Hier schrijf en beheer je je blog artikels.
+  # ════════════════════════════════════════════
   - name: blog
-    label: Blog
-    label_singular: Artikel
+    label: "📝 Blog artikels"
+    label_singular: "Blog artikel"
     folder: blog/posts
     create: true
     extension: md
     format: frontmatter
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    summary: "{{title}} - {{date}}"
+    summary: "{{title}} — {{date}}"
     fields:
-      - { label: Titel, name: title, widget: string }
-      - { label: Publicatiedatum, name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false }
-      - { label: Categorie, name: category, widget: select, options: [Loopbaan, Life coaching, Retraite, Ondernemen] }
-      - { label: Samenvatting, name: excerpt, widget: text }
-      - { label: Uitgelichte afbeelding, name: image, widget: image, required: false }
-      - { label: Inhoud, name: body, widget: markdown }
+      - label: "Titel"
+        name: title
+        widget: string
+        hint: "De titel van het artikel, zoals die bovenaan de pagina staat."
+      - label: "Publicatiedatum"
+        name: date
+        widget: datetime
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        hint: "De datum waarop het artikel gepubliceerd wordt."
+      - label: "Categorie"
+        name: category
+        widget: select
+        options:
+          - { label: "Loopbaan", value: "Loopbaan" }
+          - { label: "Life coaching", value: "Life coaching" }
+          - { label: "Retraite", value: "Retraite" }
+          - { label: "Ondernemen", value: "Ondernemen" }
+        default: "Loopbaan"
+        hint: "Kies de categorie die best bij dit artikel past."
+      - label: "Korte samenvatting"
+        name: excerpt
+        widget: text
+        hint: "Wordt getoond in de artikelenlijst op de blogpagina. Houd dit onder de 200 tekens."
+      - label: "Uitgelichte afbeelding"
+        name: image
+        widget: image
+        required: false
+        hint: "Optioneel. Wordt bovenaan het artikel getoond als er een afbeelding is."
+      - label: "Inhoud van het artikel"
+        name: body
+        widget: markdown
+        hint: "Schrijf hier de volledige tekst. Gebruik de werkbalk voor titels, vet, cursief en lijsten."
 
-  - name: site_inhoud
-    label: Site-inhoud
+  # ════════════════════════════════════════════
+  # 2. ERVARINGEN VAN CLIËNTEN
+  # Voeg reviews toe, bewerk ze of verwijder ze.
+  # De volgorde bepaalt ook de volgorde op de website.
+  # ════════════════════════════════════════════
+  - name: ervaringen
+    label: "⭐ Ervaringen"
     files:
-      - file: content/site.json
-        label: Home en Blog
-        name: home_blog
+      - file: content/reviews.json
+        label: "Reviews beheren"
+        name: reviews
         fields:
-          - { label: Home hero - label, name: homeHeroEyebrow, widget: string }
-          - { label: Home hero - titel (HTML toegestaan), name: homeHeroTitleHtml, widget: text }
-          - { label: Home hero - intro, name: homeHeroIntro, widget: text }
-          - { label: Home hero - knop primair tekst, name: homeHeroPrimaryText, widget: string }
-          - { label: Home hero - knop primair link, name: homeHeroPrimaryHref, widget: string }
-          - { label: Home hero - knop secundair tekst, name: homeHeroSecondaryText, widget: string }
-          - { label: Home hero - knop secundair link, name: homeHeroSecondaryHref, widget: string }
-          - { label: Home retraite - afbeelding, name: homeRetreatImageSrc, widget: image }
-          - { label: Home retraite - alt tekst, name: homeRetreatImageAlt, widget: string }
-          - { label: Blog hero - label, name: blogHeroLabel, widget: string }
-          - { label: Blog hero - titel, name: blogHeroTitle, widget: string }
-          - { label: Blog hero - intro, name: blogHeroIntro, widget: text }
-          - { label: Blog nieuwsbrief - titel, name: blogNewsletterTitle, widget: string }
-          - { label: Blog nieuwsbrief - tekst, name: blogNewsletterText, widget: text }
+          - label: "Reviews"
+            name: reviews
+            widget: list
+            label_singular: "Review"
+            summary: "{{naam}} — {{dienst}}"
+            hint: "Klik op 'Voeg reviews toe' om een nieuwe review toe te voegen. Slepen = volgorde wijzigen."
+            fields:
+              - label: "Naam"
+                name: naam
+                widget: string
+                hint: "Bijv. 'Thomas S.' — een volledige achternaam is niet nodig."
+              - label: "Dienst"
+                name: dienst
+                widget: select
+                hint: "Welke dienst heeft deze persoon afgenomen?"
+                options:
+                  - { label: "Life coaching", value: "Life coaching" }
+                  - { label: "Loopbaancoaching", value: "Loopbaancoaching" }
+                  - { label: "Ondernemerscoaching", value: "Ondernemerscoaching" }
+                  - { label: "Privé retraite – Onthaasten", value: "Privé retraite – Onthaasten" }
+                  - { label: "Privé ondernemersretraite", value: "Privé ondernemersretraite" }
+              - label: "Kort citaat (verschijnt op de homepage)"
+                name: citaat
+                widget: text
+                hint: "Kies de meest krachtige zin(nen). Dit staat als teaser op de homepage. Houd het kort: max. 2 zinnen."
+              - label: "Volledige review (verschijnt op de ervaringenpagina)"
+                name: tekst
+                widget: text
+                hint: "De volledige tekst van de review. Gebruik een LEGE REGEL tussen alinea's — die worden automatisch als aparte alinea's weergegeven."
+
+  # ════════════════════════════════════════════
+  # 3. TEKSTEN OP DE WEBSITE
+  # Pas hier de zichtbare teksten aan op de verschillende pagina's.
+  # Klik op een pagina hieronder om die te bewerken.
+  # ════════════════════════════════════════════
+  - name: website_teksten
+    label: "📄 Teksten op de website"
+    files:
+
+      # ── HOMEPAGE ─────────────────────────────
+      - file: content/site.json
+        label: "🏠 Homepage"
+        name: homepage
+        fields:
+          - label: "─── OPENINGSSECTIE (hero) ───────────────────"
+            name: _sep1
+            widget: string
+            required: false
+            hint: "De grote afbeelding met tekst helemaal bovenaan de startpagina."
+          - label: "Klein label boven de titel"
+            name: homeHeroEyebrow
+            widget: string
+            hint: "Bijv. 'Coaching in Antwerpen'"
+          - label: "Hoofdtitel"
+            name: homeHeroTitleHtml
+            widget: string
+            hint: "Gebruik <em>woord</em> voor cursieve tekst. Bijv. 'De Tussen<em>ruimte</em>'"
+          - label: "Intro tekst"
+            name: homeHeroIntro
+            widget: text
+            hint: "De beschrijvende zin onder de titel."
+          - label: "Knop 1 — tekst"
+            name: homeHeroPrimaryText
+            widget: string
+            hint: "Tekst op de eerste (donkere) knop. Bijv. 'Plan een gesprek'"
+          - label: "Knop 1 — link"
+            name: homeHeroPrimaryHref
+            widget: string
+            hint: "Intern: '#contact' of 'retraite/' — Extern: 'https://...'"
+          - label: "Knop 2 — tekst"
+            name: homeHeroSecondaryText
+            widget: string
+          - label: "Knop 2 — link"
+            name: homeHeroSecondaryHref
+            widget: string
+
+          - label: "─── OVER MIJ SECTIE ────────────────────────"
+            name: _sep2
+            widget: string
+            required: false
+            hint: "De 'Over mij' tekst op de startpagina."
+          - label: "Alinea 1 — Wie ben ik?"
+            name: overMijTekst1
+            widget: text
+            hint: "De introductiezin: 'Mijn naam is Liesbeth...'"
+          - label: "Alinea 2 — Persoonlijke drijfveer"
+            name: overMijTekst2
+            widget: text
+          - label: "Alinea 3 — Opleiding & specialisaties"
+            name: overMijTekst3
+            widget: text
+          - label: "Alinea 4 — Lichaamsgerichte aanpak"
+            name: overMijTekst4
+            widget: text
+          - label: "Alinea 5 — Aanpak & begeleiding"
+            name: overMijTekst5
+            widget: text
+          - label: "Alinea 6 — Definitie De Tussenruimte"
+            name: overMijTekst6
+            widget: text
+
+      # ── COACHING PAGINA'S ─────────────────────
+      - file: content/coaching.json
+        label: "💬 Coaching pagina's"
+        name: coaching
+        fields:
+          - label: "─── LIFE COACHING pagina ───────────────────"
+            name: _sep_life
+            widget: string
+            required: false
+            hint: "Tekst op de pagina 'Life coaching'."
+          - label: "Life coaching — Alinea 1"
+            name: lifeIntro1
+            widget: text
+          - label: "Life coaching — Alinea 2"
+            name: lifeIntro2
+            widget: text
+          - label: "Life coaching — Alinea 3"
+            name: lifeIntro3
+            widget: text
+
+          - label: "─── LOOPBAANCOACHING pagina ────────────────"
+            name: _sep_loopbaan
+            widget: string
+            required: false
+            hint: "Tekst op de pagina 'Loopbaancoaching'."
+          - label: "Loopbaancoaching — Alinea 1"
+            name: loopbaanIntro1
+            widget: text
+            hint: "De eerste zin + uitleg van de 4 onderzoeksvragen."
+          - label: "Loopbaancoaching — Alinea 2"
+            name: loopbaanIntro2
+            widget: text
+          - label: "Loopbaancoaching — Alinea 3"
+            name: loopbaanIntro3
+            widget: text
+
+          - label: "─── ONDERNEMERSCOACHING pagina ─────────────"
+            name: _sep_ondernemer
+            widget: string
+            required: false
+            hint: "Tekst op de pagina 'Ondernemerscoaching'."
+          - label: "Ondernemerscoaching — Alinea 1"
+            name: ondernemerIntro1
+            widget: text
+          - label: "Ondernemerscoaching — Alinea 2"
+            name: ondernemerIntro2
+            widget: text
+          - label: "Ondernemerscoaching — Alinea 3"
+            name: ondernemerIntro3
+            widget: text
+
+      # ── BLOG PAGINA ───────────────────────────
+      - file: content/site.json
+        label: "📰 Blog pagina"
+        name: blog_pagina
+        fields:
+          - label: "─── BLOG PAGINA ────────────────────────────"
+            name: _sep_blog
+            widget: string
+            required: false
+            hint: "Teksten op de overzichtspagina van de blog."
+          - label: "Label boven de titel"
+            name: blogHeroLabel
+            widget: string
+            hint: "Bijv. 'Artikels & Inzichten'"
+          - label: "Paginatitel"
+            name: blogHeroTitle
+            widget: string
+          - label: "Intro tekst"
+            name: blogHeroIntro
+            widget: text
+          - label: "─── NIEUWSBRIEF BANNER ─────────────────────"
+            name: _sep_nl
+            widget: string
+            required: false
+          - label: "Nieuwsbrief — titel"
+            name: blogNewsletterTitle
+            widget: string
+          - label: "Nieuwsbrief — tekst"
+            name: blogNewsletterText
+            widget: text
