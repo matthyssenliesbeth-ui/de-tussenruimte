@@ -138,6 +138,20 @@
         setText('[data-cms="ondernemer.intro.3"]', c.ondernemerIntro3);
     }
 
+    /* ── Retraite.json injection ──────────────────────────────────────────── */
+    function injectRetraite(c) {
+        setHtml('[data-cms="retraite.intro.1"]',       c.retraiteIntro1);
+        setHtml('[data-cms="retraite.intro.2"]',       c.retraiteIntro2);
+        setHtml('[data-cms="retraite.intro.3"]',       c.retraiteIntro3);
+        setHtml('[data-cms="retraite.onthaasten.1"]',  c.retraiteOnthaasten1);
+        setHtml('[data-cms="retraite.onthaasten.2"]',  c.retraiteOnthaasten2);
+        setHtml('[data-cms="retraite.onthaasten.3"]',  c.retraiteOnthaasten3);
+        setHtml('[data-cms="retraite.onthaasten.4"]',  c.retraiteOnthaasten4);
+        setHtml('[data-cms="retraite.ondernemer.1"]',  c.retraiteOndernemer1);
+        setHtml('[data-cms="retraite.ondernemer.2"]',  c.retraiteOndernemer2);
+        setHtml('[data-cms="retraite.ondernemer.3"]',  c.retraiteOndernemer3);
+    }
+
     /* ── Fetch helper ─────────────────────────────────────────────────────── */
     function fetchJson(url) {
         return fetch(url, { cache: 'no-store' })
@@ -149,11 +163,13 @@
     Promise.all([
         fetchJson('/content/site.json'),
         fetchJson('/content/reviews.json'),
-        fetchJson('/content/coaching.json')
+        fetchJson('/content/coaching.json'),
+        fetchJson('/content/retraite.json')
     ]).then(function (results) {
         if (results[0]) injectSite(results[0]);
         if (results[1] && results[1].reviews) injectReviews(results[1].reviews);
         if (results[2]) injectCoaching(results[2]);
+        if (results[3]) injectRetraite(results[3]);
     });
 
     /* Fallback carousel init for static HTML (when fetch is not needed / fails) */

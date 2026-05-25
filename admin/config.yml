@@ -221,33 +221,60 @@ collections:
             name: ondernemerIntro3
             widget: text
 
-      # ── BLOG PAGINA ───────────────────────────
-      - file: content/site.json
-        label: "📰 Blog pagina"
-        name: blog_pagina
+      # ── RETRAITE PAGINA ──────────────────────
+      - file: content/retraite.json
+        label: "🌿 Retraite pagina"
+        name: retraite
         fields:
-          - label: "─── BLOG PAGINA ────────────────────────────"
-            name: _sep_blog
+          - label: "─── INTRODUCTIE SECTIE ─────────────────────"
+            name: _sep_intro
             widget: string
             required: false
-            hint: "Teksten op de overzichtspagina van de blog."
-          - label: "Label boven de titel"
-            name: blogHeroLabel
-            widget: string
-            hint: "Bijv. 'Artikels & Inzichten'"
-          - label: "Paginatitel"
-            name: blogHeroTitle
-            widget: string
-          - label: "Intro tekst"
-            name: blogHeroIntro
+            hint: "De openingstekst van de retraitepagina."
+          - label: "Intro — Alinea 1"
+            name: retraiteIntro1
             widget: text
-          - label: "─── NIEUWSBRIEF BANNER ─────────────────────"
-            name: _sep_nl
+            hint: "Omschrijving van wat De Tussenruimte als retraiteplaats biedt. HTML toegestaan: <strong>vet</strong>"
+          - label: "Intro — Alinea 2"
+            name: retraiteIntro2
+            widget: text
+            hint: "Onthaasten vs. werken aan je onderneming."
+          - label: "Intro — Alinea 3"
+            name: retraiteIntro3
+            widget: text
+            hint: "Combinatiemogelijkheden (coaching, yoga, maaltijden)."
+
+          - label: "─── PRIVÉ RETRAITE — ONTHAASTEN ────────────"
+            name: _sep_onthaasten
             widget: string
             required: false
-          - label: "Nieuwsbrief — titel"
-            name: blogNewsletterTitle
-            widget: string
-          - label: "Nieuwsbrief — tekst"
-            name: blogNewsletterText
+            hint: "Tekst in de sectie 'Onthaasten'."
+          - label: "Onthaasten — Alinea 1"
+            name: retraiteOnthaasten1
             widget: text
+          - label: "Onthaasten — Alinea 2"
+            name: retraiteOnthaasten2
+            widget: text
+          - label: "Onthaasten — Alinea 3"
+            name: retraiteOnthaasten3
+            widget: text
+          - label: "Onthaasten — Alinea 4"
+            name: retraiteOnthaasten4
+            widget: text
+            hint: "Combinatie met coaching/yoga."
+
+          - label: "─── PRIVÉ ONDERNEMERSRETRAITE ───────────────"
+            name: _sep_ondernemer
+            widget: string
+            required: false
+            hint: "Tekst in de sectie 'Ondernemersretraite'."
+          - label: "Ondernemersretraite — Alinea 1"
+            name: retraiteOndernemer1
+            widget: text
+          - label: "Ondernemersretraite — Alinea 2"
+            name: retraiteOndernemer2
+            widget: text
+          - label: "Ondernemersretraite — Alinea 3"
+            name: retraiteOndernemer3
+            widget: text
+            hint: "Helderheid + combinatie met ondernemerscoaching."
