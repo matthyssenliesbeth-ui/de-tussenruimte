@@ -9,6 +9,15 @@
 
     <link rel="stylesheet" href="assets/css/main.css">
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/klaro.min.css">
+
+    <!-- Google Ads — enkel geladen na toestemming via Klaro -->
+    <script type="text/plain" data-name="google-ads" src="assets/js/gtag-init.js"></script>
+    <script type="text/plain" data-name="google-ads" async src="https://www.googletagmanager.com/gtag/js?id=AW-18123102312"></script>
+    <script type="text/plain" data-name="google-ads" src="assets/js/conversie.js"></script>
+
+    <script defer src="assets/js/klaro-config.js"></script>
+    <script defer src="assets/js/klaro.min.js"></script>
 </head>
 <body>
 
@@ -317,7 +326,7 @@
                     Kies een moment dat jou past. Een vrijblijvend
                     kennismakingsgesprek van 30 minuten.
                 </p>
-                <a href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/liesbeth-de-tussenruimte'});return false;" class="btn btn--primary">Open mijn agenda</a>
+                <a href="" onclick="window._openCalendlyWithConsent(event)" class="btn btn--primary">Open mijn agenda</a>
 
                 <!-- Scheiding -->
                 <div class="contact-divider"><span>of stuur een bericht</span></div>
@@ -388,10 +397,12 @@
     <footer class="site-footer">
         <span class="footer__brand">De Tussenruimte — Coaching Antwerpen</span>
         <nav class="footer__links" aria-label="Footernavigatie">
-            <a href="retraite/"      class="footer__link">Retraite</a>
+            <a href="retraite/"       class="footer__link">Retraite</a>
             <a href="loopbaancheque/" class="footer__link">Loopbaancheque</a>
-            <a href="blog/"          class="footer__link">Blog</a>
-            <a href="#contact"       class="footer__link">Contact</a>
+            <a href="blog/"           class="footer__link">Blog</a>
+            <a href="#contact"        class="footer__link">Contact</a>
+            <a href="privacybeleid/"  class="footer__link">Privacybeleid</a>
+            <a href="#" onclick="klaro.show();return false;" class="footer__link">Cookie-instellingen</a>
         </nav>
         <small class="footer__credit">Site gemaakt door <a href="https://johanbeysen.online" rel="noopener noreferrer">Johan Beysen</a></small>
     </footer>
