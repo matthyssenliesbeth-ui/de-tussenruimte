@@ -917,6 +917,60 @@ ul       { list-style: none; }
     margin-top: 0.25rem;
 }
 
+/* ─── Checkbox-stijl in contactformulier ─────────────────────────────────── */
+.contact-form .form-group--check {
+    gap: 0;
+}
+
+.contact-form .form-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6em;
+    cursor: pointer;
+    font-size: var(--type-label);
+    color: rgba(245, 240, 235, 0.65);
+    letter-spacing: 0;
+    text-transform: none;
+    line-height: 1.5;
+}
+
+.contact-form .form-check input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.1em;
+    height: 1.1em;
+    min-width: 1.1em;
+    border: 1px solid rgba(245, 240, 235, 0.35);
+    border-radius: 0.2em;
+    background: rgba(255, 255, 255, 0.08);
+    margin-top: 0.15em;
+    cursor: pointer;
+    transition: background var(--transition), border-color var(--transition);
+    position: relative;
+}
+
+.contact-form .form-check input[type="checkbox"]:checked {
+    background: var(--clr-earth);
+    border-color: var(--clr-earth);
+}
+
+.contact-form .form-check input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 10'%3E%3Cpolyline points='1,5 4.5,8.5 11,1' fill='none' stroke='%23f5f0eb' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/70% no-repeat;
+}
+
+.contact-form .form-check span a {
+    color: rgba(245, 240, 235, 0.8);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.contact-form .form-check span a:hover {
+    color: var(--clr-cream);
+}
+
 .contact-option__heading {
     font-size: var(--type-label);
     letter-spacing: 0.18em;
