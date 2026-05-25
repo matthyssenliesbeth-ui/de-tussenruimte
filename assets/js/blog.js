@@ -37,7 +37,7 @@
         }
 
         var markup = posts.map(function (post, index) {
-            var image = normalizeUrl(post.image || 'assets/Images/valiphotos-road-1072823.jpg');
+            var image = normalizeUrl(post.image || '/assets/Images/algemeen/heikiwi-sunlight-8555131.jpg');
             var featured = index === 0;
             var cardClass = featured ? 'article-card article-card--featured' : 'article-card';
             var linkClass = featured ? 'article-card-link article-card-link--featured' : 'article-card-link';
@@ -66,7 +66,7 @@
         grid.innerHTML = markup;
     }
 
-    fetch('/assets/data/blog-posts.json', { cache: 'no-store' })
+    fetch('../assets/data/blog-posts.json', { cache: 'no-store' })
         .then(function (response) {
             if (!response.ok) {
                 throw new Error('Kon blog-data niet laden');

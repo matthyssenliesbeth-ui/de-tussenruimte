@@ -2,6 +2,8 @@
 title: Een onverwachte eerste blog
 date: 2026-04-05
 category: Loopbaan
+author_image: /assets/Images/johan.jpg
+author_name: Johan Beysen
 excerpt: >
   
   Deze openingspost is niet geschreven door Liesbeth zelf, maar door de man die deze site bouwde. Zijn verhaal is misschien wel de beste introductie van wat je hier kan verwachten.

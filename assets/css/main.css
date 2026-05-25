@@ -2071,6 +2071,24 @@ body.lightbox-open { overflow: hidden; }
     color: var(--clr-deep);
 }
 
+.post-body__img-float {
+    float: right;
+    margin: 0 0 1.5rem 2rem;
+    border-radius: 0.5rem;
+    width: clamp(120px, 20%, 180px);
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 480px) {
+    .post-body__img-float {
+        float: none;
+        display: block;
+        margin: 0 auto 1.5rem;
+        width: clamp(100px, 40%, 160px);
+    }
+}
+
 .post-back {
     display: inline-flex;
     align-items: center;

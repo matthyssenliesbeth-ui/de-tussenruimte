@@ -141,6 +141,10 @@ function buildPostHtml(post, bodyHtml) {
     ? `<div class="post-hero__image"><img src="${escapeHtml(post.image)}" alt="${escapeHtml(post.title)}"></div>`
     : '';
 
+  const authorImgHtml = post.authorImage
+    ? `<img src="${escapeHtml(post.authorImage)}" alt="${escapeHtml(post.authorName || 'Auteur')}" class="post-body__img-float" loading="lazy">`
+    : '';
+
   return `<!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -150,6 +154,15 @@ function buildPostHtml(post, bodyHtml) {
     <meta name="description" content="${escapeHtml(post.excerpt)}">
     <link rel="canonical" href="/blog/posts/${escapeHtml(post.slug)}/">
     <link rel="stylesheet" href="../../../assets/css/main.css">
+    <link rel="stylesheet" href="../../../assets/css/klaro.min.css">
+
+    <!-- Google Ads — enkel geladen na toestemming via Klaro -->
+    <script type="text/plain" data-name="google-ads" src="../../../assets/js/gtag-init.js"></script>
+    <script type="text/plain" data-name="google-ads" async src="https://www.googletagmanager.com/gtag/js?id=AW-18123102312"></script>
+    <script type="text/plain" data-name="google-ads" src="../../../assets/js/conversie.js"></script>
+
+    <script src="../../../assets/js/klaro-config.js"></script>
+    <script defer src="../../../assets/js/klaro.min.js"></script>
 </head>
 <body>
 
@@ -193,6 +206,7 @@ function buildPostHtml(post, bodyHtml) {
 
         <article class="post-body">
             <a href="/blog/" class="post-back">Terug naar blog</a>
+            ${authorImgHtml}
             ${bodyHtml}
         </article>
     </main>
@@ -205,11 +219,14 @@ function buildPostHtml(post, bodyHtml) {
             <a href="../../../loopbaancheque/" class="footer__link">Loopbaancheque</a>
             <a href="../../../retraite/"       class="footer__link">Retraite</a>
             <a href="../../../#contact"        class="footer__link">Contact</a>
+                    <a href="../../../privacybeleid/"  class="footer__link">Privacybeleid</a>
+            <a href="#" data-klaro-show class="footer__link">Cookie-instellingen</a>
         </nav>
         <small class="footer__credit">Site gemaakt door <a href="https://johanbeysen.online" rel="noopener noreferrer">Johan Beysen</a></small>
     </footer>
 
     <script src="../../../assets/js/nav.js"></script>
+    <script src="../../../assets/js/ui-handlers.js"></script>
 </body>
 </html>
 `;
@@ -260,6 +277,8 @@ function loadAndBuildPosts() {
       category: meta.category || 'Blog',
       excerpt: extractExcerpt(meta, body),
       image: meta.image || '',
+      authorImage: meta.author_image || '',
+      authorName: meta.author_name || '',
     };
 
     // Generate static post HTML
