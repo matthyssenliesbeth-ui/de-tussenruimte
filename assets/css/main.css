@@ -830,6 +830,10 @@ ul       { list-style: none; }
     width: var(--container-lg);
 }
 
+.contact-layout > div {
+    min-width: 0;
+}
+
 .contact-layout .section__label,
 .contact-layout .section__title,
 .contact-layout .section__body {
@@ -2063,15 +2067,17 @@ body.lightbox-open { overflow: hidden; }
 .testimonial-carousel__track-wrapper {
     overflow: hidden;
     border-radius: 1rem;
+    width: 100%;
 }
 
 .testimonial-carousel__track {
     display: flex;
+    width: 100%;
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .testimonial-carousel__track > * {
-    min-width: 100%;
+    flex: 0 0 100%;
     box-sizing: border-box;
 }
 
