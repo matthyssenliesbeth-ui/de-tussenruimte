@@ -430,21 +430,7 @@
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     <script src="assets/js/nav.js"></script>
     <script src="assets/js/content.js"></script>
-    <script>
-      (function() {
-        var hash = window.location.hash || '';
-        if (hash.includes('invite_token') || hash.includes('confirmation_token') || hash.includes('recovery_token')) {
-          var s = document.createElement('script');
-          s.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js';
-          s.onload = function() {
-            window.netlifyIdentity.on('login', function() {
-              document.location.href = '/admin/';
-            });
-          };
-          document.head.appendChild(s);
-        }
-      })();
-    </script>
+    <script src="assets/js/netlify-identity-redirect.js"></script>
     <script src="assets/js/ui-handlers.js"></script>
 </body>
 </html>
