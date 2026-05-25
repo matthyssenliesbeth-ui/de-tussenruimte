@@ -89,9 +89,8 @@
         <div class="over__layout">
             <div class="over__image">
                 <picture>
-                    <source srcset="assets/Images/coaching/portretLiesbeth.webp" type="image/webp">
                     <img
-                        src="assets/Images/coaching/portretLiesbeth.png"
+                        src="assets/Images/algemeen/LiesbethTrap.jpg"
                         alt="Liesbeth — coach bij De Tussenruimte"
                         loading="lazy"
                     >
@@ -208,20 +207,27 @@
                 op maat — neem contact op voor de mogelijkheden.
             </p>
 
-            <div class="section__ctas">
+            <div class="cheque-ctas-grid">
                 <a href="loopbaancheque/" class="btn btn--outline">Alles over loopbaancheque</a>
                 <a href="#contact"        class="btn btn--primary">Vraag vrijblijvend info</a>
-            </div>
-
-            <picture>
-                <source srcset="assets/Images/logo-VDAB-002-768x229.webp" type="image/webp">
+                <a href="https://www.vdab.be/orienteren/loopbaanbegeleiding/alles-over-je-loopbaancheque" target="_blank" rel="noopener noreferrer" class="vdab-link">
+                    <picture>
+                        <source srcset="assets/Images/logo-VDAB-002-768x229.webp" type="image/webp">
+                        <img
+                            src="assets/Images/logo-VDAB-002-768x229.jpg"
+                            alt="Loopbaancheque — verkrijgbaar via VDAB"
+                            class="vdab-badge"
+                            loading="lazy"
+                        >
+                    </picture>
+                </a>
                 <img
-                    src="assets/Images/logo-VDAB-002-768x229.jpg"
-                    alt="Loopbaancheque — verkrijgbaar via VDAB"
-                    class="vdab-badge"
+                    src="assets/Images/KONNEKTLOGO2020.jpg"
+                    alt="KONNEKT — erkend loopbaancentrum"
+                    class="konnekt-badge"
                     loading="lazy"
                 >
-            </picture>
+            </div>
         </div>
     </section>
 
@@ -326,7 +332,7 @@
                     Kies een moment dat jou past. Een vrijblijvend
                     kennismakingsgesprek van 30 minuten.
                 </p>
-                <a href="" onclick="window._openCalendlyWithConsent(event)" class="btn btn--primary">Open mijn agenda</a>
+                <a href="" data-calendly-open class="btn btn--primary">Open mijn agenda</a>
 
                 <!-- Scheiding -->
                 <div class="contact-divider"><span>of stuur een bericht</span></div>
@@ -416,7 +422,7 @@
             <a href="blog/"           class="footer__link">Blog</a>
             <a href="#contact"        class="footer__link">Contact</a>
             <a href="privacybeleid/"  class="footer__link">Privacybeleid</a>
-            <a href="#" onclick="klaro.show();return false;" class="footer__link">Cookie-instellingen</a>
+            <a href="#" data-klaro-show class="footer__link">Cookie-instellingen</a>
         </nav>
         <small class="footer__credit">Site gemaakt door <a href="https://johanbeysen.online" rel="noopener noreferrer">Johan Beysen</a></small>
     </footer>
@@ -439,5 +445,6 @@
         }
       })();
     </script>
+    <script src="assets/js/ui-handlers.js"></script>
 </body>
 </html>

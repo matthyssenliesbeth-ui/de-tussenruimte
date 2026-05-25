@@ -75,15 +75,25 @@
             loopbaancentrum — zoals De Tussenruimte via KONNEKT.
         </p>
 
-        <picture>
-            <source srcset="../assets/Images/logo-VDAB-002-768x229.webp" type="image/webp">
+        <div class="partner-logos">
+            <a href="https://www.vdab.be/orienteren/loopbaanbegeleiding/alles-over-je-loopbaancheque" target="_blank" rel="noopener noreferrer">
+                <picture>
+                    <source srcset="../assets/Images/logo-VDAB-002-768x229.webp" type="image/webp">
+                    <img
+                        src="../assets/Images/logo-VDAB-002-768x229.jpg"
+                        alt="Loopbaancheque — verkrijgbaar via VDAB"
+                        class="vdab-badge"
+                        loading="lazy"
+                    >
+                </picture>
+            </a>
             <img
-                src="../assets/Images/logo-VDAB-002-768x229.jpg"
-                alt="Loopbaancheque — verkrijgbaar via VDAB"
-                class="vdab-badge"
+                src="../assets/Images/KONNEKTLOGO2020.jpg"
+                alt="KONNEKT — erkend loopbaancentrum"
+                class="konnekt-badge"
                 loading="lazy"
             >
-        </picture>
+        </div>
 
         <div class="fact-row">
             <div class="fact-item">
@@ -289,11 +299,12 @@
             <a href="../blog/"     class="footer__link">Blog</a>
             <a href="../#contact"  class="footer__link">Contact</a>
             <a href="../privacybeleid/"  class="footer__link">Privacybeleid</a>
-            <a href="#" onclick="klaro.show();return false;" class="footer__link">Cookie-instellingen</a>
+            <a href="#" data-klaro-show class="footer__link">Cookie-instellingen</a>
         </nav>
         <small class="footer__credit">Site gemaakt door <a href="https://johanbeysen.online" rel="noopener noreferrer">Johan Beysen</a></small>
     </footer>
 
     <script src="../assets/js/nav.js"></script>
+    <script src="../assets/js/ui-handlers.js"></script>
 </body>
 </html>
