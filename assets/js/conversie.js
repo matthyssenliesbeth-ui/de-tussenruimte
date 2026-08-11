@@ -1,21 +1,37 @@
 // ── Conversie-tracking voor Google Ads ───────────────────────────────────────
-// Dit bestand wordt altijd geladen; Consent Mode v2 (zie gtag-init.js en
-// klaro-config.js) bepaalt of Google de conversie effectief mag registreren
-// op basis van de toestemming die de gebruiker via Klaro heeft gegeven.
+// Vuurt exact op het moment van indienen (klik op "Stuur een bericht"), niet
+// bij het laden van de bedankt-pagina — zo telt een toevallig/rechtstreeks
+// bezoek aan /bedankt/ nooit mee. Consent Mode v2 (gtag-init.js/
+// klaro-config.js) bepaalt of Google de conversie effectief mag registreren.
+//
+// De echte formulier-POST (Netlify) wordt uitgesteld tot de conversie is
+// gemeld — met een fallback-timeout zodat het formulier ook doorgaat als
+// gtag.js geblokkeerd is (ad-blocker, netwerkstoring) en de callback nooit
+// komt.
 // ─────────────────────────────────────────────────────────────────────────────
 
-var GTAG_LEADFORM_ID = 'AW-18123102312/6mgUCN2u298cEOiw4sFD'; // Leadformulier indienen (contactformulier)
+document.addEventListener('DOMContentLoaded', function () {
+    var form = document.querySelector('form[name="contact"]');
+    if (!form) return;
 
-// Contactformulier: gebruiker is op de bedankt-pagina beland ná een echte
-// formulier-indiening (token gezet door ui-handlers.js vlak vóór de POST).
-// Zonder token — bv. rechtstreeks bezoek, bookmark, gedeelde link — telt
-// het bezoek niet als conversie. Token wordt meteen gewist zodat een
-// refresh niet dubbel telt.
-if (window.location.pathname.indexOf('/bedankt') !== -1) {
-    if (sessionStorage.getItem('detr_form_submitted') === '1') {
-        sessionStorage.removeItem('detr_form_submitted');
-        if (typeof window.gtag === 'function') {
-            window.gtag('event', 'conversion', {send_to: GTAG_LEADFORM_ID});
+    form.addEventListener('submit', function (e) {
+        if (typeof window.gtag !== 'function') return;
+
+        e.preventDefault();
+
+        var submitted = false;
+        function proceed() {
+            if (submitted) return;
+            submitted = true;
+            form.submit();
         }
-    }
-}
+
+        window.gtag('event', 'conversion', {
+            send_to: 'AW-18123102312/6mgUCN2u298cEOiw4sFD',
+            value: 1.0,
+            currency: 'EUR',
+            event_callback: proceed
+        });
+        setTimeout(proceed, 1000);
+    });
+});
