@@ -37,10 +37,6 @@ var klaroConfig = {
                     title: 'Marketing',
                     description: 'Cookies voor het meten van advertentie-effectiviteit.',
                 },
-                functional: {
-                    title: 'Functioneel',
-                    description: 'Cookies voor externe widgets (zoals de agenda).',
-                },
             },
         },
     },
@@ -53,14 +49,6 @@ var klaroConfig = {
                 ad_user_data: state,
                 ad_personalization: state
             });
-        }
-        if (service.name === 'calendly' && consent && window._pendingCalendly) {
-            window._pendingCalendly = false;
-            if (typeof Calendly !== 'undefined') {
-                setTimeout(function() {
-                    Calendly.initPopupWidget({url: 'https://calendly.com/liesbeth-de-tussenruimte'});
-                }, 400);
-            }
         }
     },
 
@@ -79,37 +67,5 @@ var klaroConfig = {
                 },
             },
         },
-        {
-            name: 'calendly',
-            title: 'Calendly',
-            purposes: ['functional'],
-            required: false,
-            onlyOnce: false,
-            translations: {
-                nl: {
-                    title: 'Calendly (agenda)',
-                    description: 'Externe agenda-service om een gesprek in te plannen. Verwerkt browsergegevens bij gebruik van het agendawidget.',
-                },
-            },
-        },
     ],
-};
-
-window._openCalendlyWithConsent = function(e) {
-    e.preventDefault();
-    if (typeof klaro === 'undefined') {
-        if (typeof Calendly !== 'undefined') {
-            Calendly.initPopupWidget({url: 'https://calendly.com/liesbeth-de-tussenruimte'});
-        }
-        return;
-    }
-    var manager = klaro.getManager();
-    if (manager && manager.getConsent('calendly')) {
-        if (typeof Calendly !== 'undefined') {
-            Calendly.initPopupWidget({url: 'https://calendly.com/liesbeth-de-tussenruimte'});
-        }
-    } else {
-        window._pendingCalendly = true;
-        klaro.show();
-    }
 };

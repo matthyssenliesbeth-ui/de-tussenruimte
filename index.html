@@ -8,7 +8,6 @@
     <link rel="canonical" href="/">
 
     <link rel="stylesheet" href="assets/css/main.css">
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/klaro.min.css">
 
     <!-- Google tag (gtag.js) — altijd actief; Consent Mode v2 regelt toestemming -->
@@ -326,19 +325,11 @@
                     Zet de eerste stap
                 </h2>
 
-                <!-- Optie 1: Calendly -->
-                <p class="contact-option__heading">Plan een gesprek</p>
+                <p class="contact-option__heading">Plan een gratis gesprek</p>
                 <p class="contact-option__text">
-                    Kies een moment dat jou past. Een vrijblijvend
-                    kennismakingsgesprek van 30 minuten.
+                    Geef hieronder jouw gegevens in en ik contacteer je graag binnen de 2 werkdagen
+                    om een vrijblijvend kennismakingsgesprek (max. 30 min.) in te plannen.
                 </p>
-                <a href="" data-calendly-open class="btn btn--primary">Open mijn agenda</a>
-
-                <!-- Scheiding -->
-                <div class="contact-divider"><span>of stuur een bericht</span></div>
-
-                <!-- Optie 2: Formulier -->
-                <p class="contact-option__heading">Stuur een bericht</p>
                 <form
                     name="contact"
                     method="POST"
@@ -354,7 +345,7 @@
                     <div class="form-group">
                         <label for="naam">Naam</label>
                         <input
-        ''                    type="text"
+                            type="text"
                             id="naam"
                             name="naam"
                             placeholder="Jouw naam"
@@ -372,6 +363,17 @@
                             placeholder="jouw@email.be"
                             required
                             autocomplete="email"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gsm">Gsm nr.</label>
+                        <input
+                            type="tel"
+                            id="gsm"
+                            name="gsm"
+                            placeholder="0470 12 34 56"
+                            autocomplete="tel"
                         >
                     </div>
 
@@ -400,7 +402,7 @@
                     </div>
 
                     <button type="submit" class="btn btn--outline-light">
-                        Verstuur bericht
+                        Stuur een bericht
                     </button>
                 </form>
             </div>
@@ -427,7 +429,6 @@
         <small class="footer__credit">Site gemaakt door <a href="https://johanbeysen.online" rel="noopener noreferrer">Johan Beysen</a></small>
     </footer>
 
-    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     <script src="assets/js/nav.js"></script>
     <script src="assets/js/content.js"></script>
     <script src="assets/js/netlify-identity-redirect.js"></script>
