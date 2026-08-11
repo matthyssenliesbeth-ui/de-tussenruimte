@@ -492,7 +492,7 @@ ul       { list-style: none; }
 .section--diensten  { background-color: var(--clr-sand); }
 .section--cheque    { background-color: var(--clr-sage); }
 .section--retraite  { background-color: var(--clr-stone); }
-.section--contact   { background-color: #7a5540; }
+.section--contact   { background-color: #7a5540; position: relative; height: auto; min-height: 100vh; overflow: visible; justify-content: flex-start; padding-block: clamp(5rem, 9vh, 8rem); }
 
 /* ─── Startpagina: Hero ──────────────────────────────────────────────────── */
 .hero__bg {
