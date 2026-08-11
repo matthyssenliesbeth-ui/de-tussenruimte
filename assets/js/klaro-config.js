@@ -46,6 +46,14 @@ var klaroConfig = {
     },
 
     callback: function(consent, service) {
+        if (service.name === 'google-ads' && typeof window.gtag === 'function') {
+            var state = consent ? 'granted' : 'denied';
+            window.gtag('consent', 'update', {
+                ad_storage: state,
+                ad_user_data: state,
+                ad_personalization: state
+            });
+        }
         if (service.name === 'calendly' && consent && window._pendingCalendly) {
             window._pendingCalendly = false;
             if (typeof Calendly !== 'undefined') {
