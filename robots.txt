@@ -2,4 +2,5 @@ User-agent: *
 Disallow: /admin/
 Disallow: /content/
 Disallow: /.netlify/
+Disallow: /bedankt/
 

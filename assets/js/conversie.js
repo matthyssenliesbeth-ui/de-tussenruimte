@@ -1,28 +1,32 @@
 // ── Conversie-tracking voor Google Ads ───────────────────────────────────────
-// Dit bestand wordt enkel geladen nadat de gebruiker toestemming heeft gegeven
-// voor marketing-cookies via Klaro (data-name="google-ads").
-//
-// VERVANG 'CONVERSION_LABEL_HIER' door het label uit Google Ads:
-// Google Ads → Doelen → Conversies → [jouw actie] → Tag-instelling
-// Het label is het deel na de slash: AW-18123102312/XXXXX
+// Dit bestand wordt altijd geladen; Consent Mode v2 (zie gtag-init.js en
+// klaro-config.js) bepaalt of Google de conversie effectief mag registreren
+// op basis van de toestemming die de gebruiker via Klaro heeft gegeven.
 // ─────────────────────────────────────────────────────────────────────────────
 
-var GTAG_CONVERSIE_ID = 'AW-18123102312/CONVERSION_LABEL_HIER';
+var GTAG_AFSPRAAK_ID = 'AW-18123102312/04TtCJnc7awcEOiw4sFD'; // Afspraak maken (Calendly)
+var GTAG_LEADFORM_ID = 'AW-18123102312/6mgUCN2u298cEOiw4sFD'; // Leadformulier indienen (contactformulier)
 
 // 1. Calendly: afspraak geboekt via de popup
 window.addEventListener('message', function(e) {
     if (e.origin !== 'https://calendly.com') return;
     if (e.data && e.data.event === 'calendly.event_scheduled') {
         if (typeof window.gtag === 'function') {
-            window.gtag('event', 'conversion', {send_to: GTAG_CONVERSIE_ID});
+            window.gtag('event', 'conversion', {send_to: GTAG_AFSPRAAK_ID});
         }
     }
 });
 
-// 2. Contactformulier: gebruiker is op de bedankt-pagina beland
-if (window.location.pathname.replace(/\/$/, '').split('/').pop() === 'bedankt' ||
-    window.location.pathname.indexOf('/bedankt') !== -1) {
-    if (typeof window.gtag === 'function') {
-        window.gtag('event', 'conversion', {send_to: GTAG_CONVERSIE_ID});
+// 2. Contactformulier: gebruiker is op de bedankt-pagina beland ná een
+//    echte formulier-indiening (token gezet door ui-handlers.js vlak vóór
+//    de POST). Zonder token — bv. rechtstreeks bezoek, bookmark, gedeelde
+//    link — telt het bezoek niet als conversie. Token wordt meteen gewist
+//    zodat een refresh niet dubbel telt.
+if (window.location.pathname.indexOf('/bedankt') !== -1) {
+    if (sessionStorage.getItem('detr_form_submitted') === '1') {
+        sessionStorage.removeItem('detr_form_submitted');
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'conversion', {send_to: GTAG_LEADFORM_ID});
+        }
     }
 }
