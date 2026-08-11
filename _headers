@@ -23,10 +23,13 @@
   # ── Content Security Policy ───────────────────────────────────────────────
   # default-src 'none' = alles geblokkeerd tenzij expliciet toegelaten
   #
-  # Hashes voor Klaro v0.7.18 inline stijlen + inline script (stabiel zolang versie gepinned blijft)
-  # Twee extra hashes voor de inline stijlen van Google Tag Assistant's debug-badge
-  # (laadt enkel tijdens ?gtm_debug= testsessies — kan opnieuw wijzigen als Google de badge update)
-  Content-Security-Policy: default-src 'none'; script-src 'self' https://identity.netlify.com https://www.googletagmanager.com 'sha256-q1NGZz+MmobRabe2QmyhJcDCqKGIcn3nvbPiuLo06Po='; style-src 'self' https://www.googletagmanager.com https://fonts.googleapis.com 'unsafe-hashes' 'sha256-47DEQpj8HBSa+/TImW+SJCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-GnNmh2jwNeIL7ktESHVnjaN2dQRlbjkbLwDS2i94Dds='; style-src-attr 'unsafe-hashes' 'sha256-47DEQpj8HBSa+/TImW+SJCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-GnNmh2jwNeIL7ktESHVnjaN2dQRlbjkbLwDS2i94Dds=' 'sha256-XwGOGGMGQQ+IV0Om4xzgbDHXUh/+L1c375p0Pb6vF9A=' 'sha256-9HGruJg4WccHXasSI1NmLn7tIiTDh6N26o6+/dy8sm4='; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com; media-src 'none'; connect-src 'self' https://api.netlify.com https://identity.netlify.com https://www.googletagmanager.com https://www.google.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com; worker-src 'none'; manifest-src 'none'; frame-src 'none'; frame-ancestors 'none'; form-action 'self' https://api.netlify.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests; report-uri /.netlify/functions/csp-report
+  # ⚠ TIJDELIJK (sinds 2026-08-11): style-src staat 'unsafe-inline' toe zodat
+  # Google Tag Assistant's debug-badge (?gtm_debug=) volledig kan renderen voor
+  # de conversieverificatie in Google Ads. De badge injecteert inline stijlen
+  # met wisselende inhoud, dus hash-pinning werkt daar niet betrouwbaar voor.
+  # ZODRA de campagne-verificatie in Google Ads geslaagd is: zet dit terug naar
+  # de hash-gebaseerde versie (Klaro-hashes, geen 'unsafe-inline').
+  Content-Security-Policy: default-src 'none'; script-src 'self' https://identity.netlify.com https://www.googletagmanager.com 'sha256-q1NGZz+MmobRabe2QmyhJcDCqKGIcn3nvbPiuLo06Po='; style-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com; media-src 'none'; connect-src 'self' https://api.netlify.com https://identity.netlify.com https://www.googletagmanager.com https://www.google.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com; worker-src 'none'; manifest-src 'none'; frame-src 'none'; frame-ancestors 'none'; form-action 'self' https://api.netlify.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests; report-uri /.netlify/functions/csp-report
 
 # ── Cache: fonts & images (nooit gewijzigd, dus immutable) ───────────────
 /assets/fonts/*
